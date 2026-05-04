@@ -1,0 +1,197 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const sections = [
+  {
+    title: 'Non-Disclosure',
+    body: 'You shall not disclose, distribute, reproduce, sell, or otherwise provide access to the Templates, Marketing Strategies, and any Confidential Communication or any information contained therein to any third party without the prior written consent of the Company.',
+  },
+  {
+    title: 'Use Restrictions',
+    body: 'You shall only use the Templates, Marketing Strategies, and any Confidential Communication for the purposes explicitly authorized by the Company. Any use, modification, or adaptation of the Templates, Marketing Strategies, and any Confidential Communication beyond the authorized scope is strictly prohibited.',
+  },
+  {
+    title: 'Ownership and Intellectual Property',
+    body: 'You acknowledge and agree that the Templates, Marketing Strategies, and any Confidential Communication and all associated intellectual property rights are and shall remain the exclusive property of the Company. This Agreement does not grant you any right or license to the Templates, Marketing Strategies, and any Confidential Communication except as expressly authorized herein.',
+  },
+  {
+    title: 'Return or Destruction',
+    body: 'Upon the Company\'s request or termination of your engagement, you shall promptly return or destroy all copies of the Templates, Marketing Strategies, and any Confidential Communication and any related materials in your possession, custody, or control, and provide written certification of such return or destruction.',
+  },
+  {
+    title: 'Breach and Remedies',
+    body: 'In the event of a breach of this Agreement, the Company shall be entitled to seek injunctive relief, damages, or any other legal remedies available to it. The rights and remedies provided in this Agreement are cumulative and shall not limit any other rights or remedies available to the Company at law or in equity. In the event of litigation, the prevailing party shall be entitled to recover costs and attorney\'s fees, in addition to any and all other available remedies.',
+  },
+  {
+    title: 'Survival',
+    body: 'The obligations and restrictions set forth in this Agreement shall survive the termination or expiration of any agreement or engagement between you and the Company.',
+  },
+  {
+    title: 'Governing Law and Jurisdiction',
+    body: 'This Agreement shall be governed by and construed in accordance with the laws of South Carolina. Any disputes arising out of or in connection with this Agreement shall be subject to the exclusive jurisdiction of the courts of Anderson, South Carolina.',
+  },
+];
+---
+
+<Layout title="Confidentiality Agreement" description="6sMaker Confidentiality Agreement">
+
+  <section class="ca-hero">
+    <div class="container">
+      <span class="label">Legal</span>
+      <h1 class="ca-heading">Confidentiality<br/>Agreement</h1>
+    </div>
+  </section>
+
+  <section class="ca-body">
+    <div class="container">
+      <div class="ca-inner">
+
+        <div class="ca-intro">
+          <p>
+            This Confidentiality Agreement ("Agreement") is designed to protect the proprietary design
+            Templates, Marketing Strategies, and any Confidential Communication ("Templates, Marketing
+            Strategies, and any Confidential Communication") owned by VinylProtec, LLC (D.B.A. 6sMaker
+            ("Company"). By accessing, using, or receiving any Templates, Marketing Strategies, and any
+            Confidential Communication, you agree to be bound by the terms and conditions set forth in
+            this Agreement.
+          </p>
+          <p>
+            You acknowledge and agree that the Templates, Marketing Strategies and any specific
+            communication noted as confidential ("Confidential Communication") and provided by the
+            Company contain confidential and proprietary information. You shall maintain and exercise
+            reasonable care to protect the information and prevent unauthorized disclosure, use or access
+            by any third party to the confidential and proprietary information.
+          </p>
+        </div>
+
+        <ol class="ca-sections">
+          {sections.map((s, i) => (
+            <li class="ca-section">
+              <div class="section-num">{String(i + 1).padStart(2, '0')}</div>
+              <div class="section-content">
+                <h2 class="section-title">{s.title}</h2>
+                <p class="section-body">{s.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <div class="ca-closing">
+          <p>
+            By accessing, using, or receiving the Templates, Marketing Strategies, and any Confidential
+            Communication, you acknowledge that you have read, understood, and agree to be bound by this
+            Confidentiality Agreement.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .ca-hero {
+    padding-top: calc(var(--nav-h) + 4rem);
+    padding-bottom: 4rem;
+    padding-left: var(--px);
+    padding-right: var(--px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ca-hero .label {
+    display: block;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .ca-heading {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    animation: fadeUp 0.7s 0.08s ease both;
+  }
+
+  .ca-body {
+    padding: 5rem var(--px) 7rem;
+  }
+
+  .ca-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  .ca-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ca-intro p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+  }
+
+  .ca-sections {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .ca-section {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+
+  .section-num {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    padding-top: 0.2rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-body {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+  }
+
+  .ca-closing {
+    padding-top: 1rem;
+  }
+
+  .ca-closing p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    font-style: italic;
+    border-left: 2px solid var(--accent);
+    padding-left: 1.5rem;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: none; }
+  }
+</style>

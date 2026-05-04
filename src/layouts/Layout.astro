@@ -1,0 +1,315 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "6sMaker — Building things that matter" } = Astro.props;
+const path = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <title>{title} — 6sMaker</title>
+  </head>
+  <body>
+    <nav class="nav" id="nav">
+      <a href="/" class="nav-logo"><img src="/logo.svg" alt="6sMaker" height="50" /></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/" class:list={['nav-link', { active: path === '/' }]}>Home</a></li>
+        <li><a href="/portfolio" class:list={['nav-link', { active: path === '/portfolio' }]}>Work</a></li>
+        <li><a href="/about" class:list={['nav-link', { active: path === '/about' }]}>About</a></li>
+        <li><a href="/contact" class="nav-link nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="/logo.svg" alt="6sMaker" height="50" class="footer-logo" />
+          <p>Building things that matter.</p>
+        </div>
+        <nav class="footer-links">
+          <a href="/portfolio">Work</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+          <a href="/confidentiality">Confidentiality Agreement</a>
+        </nav>
+        <p class="footer-copy">© 2026 6sMaker</p>
+      </div>
+    </footer>
+
+    <script>
+      const nav = document.getElementById('nav');
+      window.addEventListener('scroll', () => {
+        nav?.classList.toggle('scrolled', window.scrollY > 50);
+      }, { passive: true });
+
+      const toggle = document.getElementById('navToggle');
+      const links = document.getElementById('navLinks');
+      toggle?.addEventListener('click', () => {
+        links?.classList.toggle('open');
+        toggle.classList.toggle('open');
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('revealed');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0D0C0A;
+    --surface: #151412;
+    --surface-2: #1E1C19;
+    --text: #F0EAE0;
+    --text-muted: #a59c90;
+    --accent: #E8272A;
+    --accent-dim: rgba(232, 39, 42, 0.08);
+    --border: #272420;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Crimson Pro', Georgia, serif;
+    --font-mono: 'Space Mono', monospace;
+    --nav-h: 72px;
+    --px: clamp(1.5rem, 5vw, 4rem);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--px);
+    height: var(--nav-h);
+    transition: background 0.35s, border-color 0.35s;
+    border-bottom: 1px solid transparent;
+  }
+
+  .nav.scrolled {
+    background: rgba(13, 12, 10, 0.94);
+    backdrop-filter: blur(16px);
+    border-color: var(--border);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    position: relative;
+    z-index: 101;
+  }
+
+  .nav-logo img { display: block; }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-link {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover,
+  .nav-link.active { color: var(--text); }
+
+  .nav-link.nav-cta {
+    color: var(--accent);
+    border: 1px solid currentColor;
+    padding: 0.45rem 1.1rem;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-link.nav-cta:hover { background: var(--accent); color: var(--bg); }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    position: relative;
+    z-index: 101;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--text);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* ── FOOTER ── */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 3rem var(--px);
+  }
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .footer-logo {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .footer-brand p {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+  }
+  .footer-links a {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--text); }
+  .footer-copy {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--text-muted);
+  }
+
+  /* ── REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+    transition-delay: var(--delay, 0s);
+  }
+  .reveal.revealed { opacity: 1; transform: none; }
+
+  /* ── SHARED UTILITIES ── */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--px);
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    padding: 0.85rem 1.75rem;
+    transition: all 0.22s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+  .btn-primary:hover { background: #f03033; }
+
+  .btn-outline {
+    border: 1px solid var(--border);
+    color: var(--text);
+    background: transparent;
+  }
+  .btn-outline:hover { border-color: var(--text); }
+
+  .btn-ghost {
+    color: var(--text-muted);
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .btn-ghost:hover { color: var(--text); }
+
+  /* ── MOBILE NAV ── */
+  @media (max-width: 768px) {
+    .nav-toggle { display: flex; }
+
+    .nav-links {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      flex-direction: column;
+      justify-content: center;
+      gap: 2.5rem;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.77, 0, 0.18, 1);
+    }
+    .nav-links.open { transform: translateX(0); }
+    .nav-link { font-size: 0.85rem; }
+
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>

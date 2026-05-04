@@ -1,0 +1,463 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    num: '01',
+    title: 'Amazon E-Commerce Support',
+    category: 'Digital Design',
+    tags: ['E-Com', 'Photography', 'Copywriting'],
+    year: '2025',
+    desc: 'If websites visits are any indication, Amazon.com is the most popular retail website in all of the internet. To capitalize there, Litter Pearls asked us to make their popularity within the e-commerce giant our new project.',
+    c1: '#1a3a2a', c2: '#0d1f16',
+    slug: '/portfolio/amazon-e-commerce-support/',
+  },
+  {
+    num: '02',
+    title: 'Home Depot E-Com Support',
+    category: 'Digital Design',
+    tags: ['E-Com', 'Digital'],
+    year: '2025',
+    desc: 'Our team delivered thousands of e-commerce assets for a Home Depot vendor client, boosting search rankings and brand storytelling efforts that earned the client recognition from The Home Depot for digital marketing excellence.',
+    c1: '#0f2233', c2: '#071422',
+    slug: '/portfolio/e-commerce-support/',
+  },
+  {
+    num: '03',
+    title: 'Litter Pearls',
+    category: 'Packaging Design',
+    tags: ['Branding', 'Package', 'Video'],
+    year: '2024',
+    desc: 'A complete brand refresh for Litter Pearls delivered a modernized logo, upscale packaging, and digital marketing support — including product videos and social content for global virtual pet shows.',
+    c1: '#2e1a0a', c2: '#1a0f05',
+    slug: '/portfolio/litter-pearls/',
+  },
+  {
+    num: '04',
+    title: 'Smartcast Media',
+    category: 'Web Design',
+    tags: ['Branding', 'Web', 'Animation'],
+    year: '2024',
+    desc: 'A comprehensive creative launch for Smartcast Media\'s digital display platform included website design, an animated explainer video, and a library of creative shorts positioning their product as a top-tier transaction driver and revenue generator.',
+    c1: '#1a1a2e', c2: '#0f0f1e',
+    img: '/images/smartcast-media.jpg',
+    slug: '/portfolio/smartcast-media/',
+  },
+  {
+    num: '05',
+    title: 'Richpower',
+    category: 'Web Design',
+    tags: ['Web', 'Design', 'Development'],
+    year: '2024',
+    desc: "Three distinct, on-brand consumer websites were designed, developed, and launched for RICHPOWER Industries' power tool brands — with ongoing maintenance and updates managed by our team.",
+    c1: '#2a1a0a', c2: '#1a0f05',
+    img: '/images/richpower.jpg',
+    slug: '/portfolio/richpower/',
+  },
+  {
+    num: '06',
+    title: 'Cateechee',
+    category: 'Brand Identity',
+    tags: ['Branding', 'Web', 'Video'],
+    year: '2024',
+    desc: 'A quiet escape with full amenities, Cateechee is a beautiful golf community to call home – or home for a day. Our drone pilots and videographers were ecstatic to shoot footage of the stunning golf course, gorgeous homes, wedding venue, restaurant and the fun and friendly staff who make Cateechee such a special place.',
+    c1: '#0a1a2e', c2: '#050f1c',
+    slug: '/portfolio/cateechee/',
+  },
+  {
+    num: '07',
+    title: 'The Leadbetter Academy at Cateechee',
+    category: 'Video Production',
+    tags: ['Video', 'Motion'],
+    year: '2023',
+    desc: 'If you want to learn the dance of the golf swing, we know just the instructor. Jeff, the director of instruction at The Leadbetter Academy, brought us out to create an instructional video series. We had a great time not only producing these step-by-step videos, but also learning how to improve our swings.',
+    c1: '#2e1f14', c2: '#1a120b',
+    slug: '/portfolio/leadbetter-academy-cateechee/',
+  },
+  {
+    num: '08',
+    title: 'TPI Texas',
+    category: 'Web Design',
+    tags: ['Web', 'Branding', 'Print'],
+    year: '2023',
+    desc: 'A year-long brand transformation for TPI resulted in a meticulously crafted new logo and website that reflects the same artisan quality the metalworking company puts into their own products.',
+    c1: '#1a2a1a', c2: '#0f190f',
+    slug: '/portfolio/tpi-texas/',
+  },
+  {
+    num: '09',
+    title: 'The Club at Brookstone',
+    category: 'Brand Identity',
+    tags: ['Brand', 'Web', 'Photography'],
+    year: '2023',
+    desc: 'We created a lasting brand identity that would convey the multitude of opportunities available to members of The Club at Brookstone. They were in transition from just a golf club to a multi-faceted club with many different sports as well as dining.',
+    c1: '#2a1a2a', c2: '#190f19',
+    slug: '/portfolio/the-club-at-brookstone/',
+  },
+  {
+    num: '10',
+    title: 'The Iron Yard',
+    category: 'Print Design',
+    tags: ['Print'],
+    year: '2023',
+    desc: 'Environmental and event graphics — including location banners and classroom identifier decals — were produced for The Iron Yard coding school across multiple national locations.',
+    c1: '#2e2010', c2: '#1a1208',
+    img: '/images/the-iron-yard.jpg',
+    slug: '/portfolio/the-iron-yard/',
+  },
+  {
+    num: '11',
+    title: 'Board Bandages',
+    category: 'Product Development',
+    tags: ['Print', 'Web', 'Package'],
+    year: '2022',
+    desc: 'Board Bandages is a pioneering surf product that lets surfers quickly seal board damage on the spot and get back in the water within minutes.',
+    c1: '#162a16', c2: '#0d190d',
+    slug: '/portfolio/board-bandages/',
+  },
+  {
+    num: '12',
+    title: 'Neon Cat Litter',
+    category: 'Brand Identity',
+    tags: ['Brand', 'Package', 'Print'],
+    year: '2022',
+    desc: 'Neon Litter approached us to invent their brand. This was to a be a fun and sophisticated cat litter. Bright colors to appeal to a young audience and their picky cats. Starting with the logo and their mascot, we created a brand worthy of the pickiest cat or cat connoisseur.',
+    c1: '#1a1a2e', c2: '#10101c',
+    img: '/images/neon-cat-litter.jpg',
+    slug: '/portfolio/neon-cat-litter/',
+  },
+  {
+    num: '13',
+    title: 'Terrapin Beer',
+    category: 'Auto Design',
+    tags: ['Print', 'Wrap'],
+    year: '2022',
+    desc: 'The folks at Terrapin contacted us with a super fun project, and likely one of a kind. They had acquired a beer can shaped car, and wanted it wrapped to resemble one of their beer brands.',
+    c1: '#2a1a0e', c2: '#180f08',
+    img: '/images/terrapin-beer-company.jpg',
+    slug: '/portfolio/terrapin-beer-company/',
+  },
+  {
+    num: '14',
+    title: 'Solid Gold',
+    category: 'Print Materials',
+    tags: ['Print'],
+    year: '2022',
+    desc: 'Project description coming soon.',
+    c1: '#0e1e2a', c2: '#081118',
+    img: '/images/solid-gold.jpg',
+    slug: '/portfolio/solid-gold/',
+  },
+  {
+    num: '15',
+    title: 'Extreme Pure Power',
+    category: 'Package Design',
+    tags: ['Package', 'Print'],
+    year: '2021',
+    desc: 'Fresh packaging labels, merchandising concepts, and point-of-purchase signage were created to elevate a client\'s in-store brand experience ahead of new variety store retail partnerships.',
+    c1: '#1e1e1e', c2: '#111111',
+    img: '/images/extreme-pure-power.jpg',
+    slug: '/portfolio/extreme-pure-power/',
+  },
+];
+---
+
+<Layout title="Work" description="6sMaker — Selected projects and case studies">
+
+  <!-- HEADER -->
+  <section class="portfolio-hero">
+    <div class="container">
+      <span class="label">Selected Work</span>
+      <h1 class="portfolio-heading">
+        Projects<br/>that moved<br/>the needle.
+      </h1>
+      <p class="portfolio-sub">
+        A selection of work spanning brand, product, and digital — from early-stage
+        startups to established companies ready for a change.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROJECT COUNT -->
+  <div class="portfolio-meta reveal">
+    <div class="container">
+      <div class="meta-inner">
+        <span class="meta-count">{projects.length} Projects Shown</span>
+        <span class="meta-note">Updated 2025</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <section class="projects-section">
+    <div class="projects-list">
+        {projects.map((p, i) => (
+          <article class="project reveal" style={`--delay: ${(i % 3) * 0.08}s`}>
+            {p.slug && <a href={p.slug} class="project-stretched-link" aria-label={p.title}></a>}
+            <div class="project-visual" style={p.img ? '' : `--c1: ${p.c1}; --c2: ${p.c2}`}>
+              {p.img && <img src={p.img} alt={p.title} class="visual-img" />}
+              <span class="project-num">{p.num}</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="label">{p.category}</span>
+                <div class="project-tags">
+                  {p.tags.map(t => <span class="tag">{t}</span>)}
+                </div>
+              </div>
+              <h2 class="project-title">{p.title}</h2>
+              <p class="project-desc">{p.desc}</p>
+              <span class="project-link">{p.slug ? 'View Case Study →' : 'Coming Soon'}</span>
+            </div>
+          </article>
+        ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="portfolio-cta reveal">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="cta-text">
+          <span class="label">Next</span>
+          <h2 class="cta-heading">Your project<br/>goes here.</h2>
+        </div>
+        <div class="cta-body">
+          <p>We take on a limited number of projects each quarter to ensure every client gets our full attention.</p>
+          <a href="/contact" class="btn btn-primary">Start a Conversation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ── HERO ── */
+  .portfolio-hero {
+    padding-top: calc(var(--nav-h) + 5rem);
+    padding-bottom: 5rem;
+    padding-left: var(--px);
+    padding-right: var(--px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .portfolio-hero .label {
+    display: block;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .portfolio-heading {
+    font-family: var(--font-display);
+    font-size: clamp(4.5rem, 10vw, 9rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    animation: fadeUp 0.7s 0.08s ease both;
+    margin-bottom: 2.5rem;
+  }
+
+  .portfolio-sub {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: var(--text-muted);
+    max-width: 52ch;
+    animation: fadeUp 0.7s 0.18s ease both;
+  }
+
+  /* ── META BAR ── */
+  .portfolio-meta {
+    border-bottom: 1px solid var(--border);
+    padding: 1rem var(--px);
+  }
+
+  .meta-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .meta-count,
+  .meta-note {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+  }
+
+  /* ── PROJECTS LIST ── */
+  .projects-section {
+    padding: 2px 0;
+  }
+
+  .projects-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    width: 100%;
+    padding: 0 var(--px);
+  }
+
+  .project {
+    background: var(--surface);
+    overflow: hidden;
+    cursor: pointer;
+    transition: background 0.3s;
+    position: relative;
+  }
+
+  .project-stretched-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  .project:hover { background: var(--surface-2); }
+
+  .project-visual {
+    height: 260px;
+    background: linear-gradient(135deg, var(--c1, #1a1a1a), var(--c2, #111));
+    position: relative;
+    transition: height 0.4s ease;
+    overflow: hidden;
+  }
+
+  .visual-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .project:hover .project-visual { height: 300px; }
+
+  .project-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent 50%);
+  }
+
+  .project-num {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.5rem;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.4);
+    z-index: 1;
+  }
+
+  .project-year {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.3);
+    z-index: 1;
+  }
+
+  .project-content {
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .project-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.5rem;
+  }
+
+  .project-title {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+  }
+
+  .project-link {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .project:hover .project-link { opacity: 1; }
+
+  /* ── CTA ── */
+  .portfolio-cta {
+    padding: 7rem var(--px);
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    margin-top: 2px;
+  }
+
+  .cta-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .cta-text .label { display: block; margin-bottom: 1rem; }
+
+  .cta-heading {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+  }
+
+  .cta-body p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+    max-width: 40ch;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .projects-list { grid-template-columns: 1fr; }
+    .cta-inner { grid-template-columns: 1fr; gap: 3rem; }
+  }
+</style>

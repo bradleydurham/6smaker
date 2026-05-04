@@ -1,0 +1,601 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const values = [
+  {
+    num: '01',
+    title: 'Craft Over Speed',
+    body: "We'd rather spend one more day getting the details right than ship something we're not proud of. Every pixel, every line of code, every word.",
+  },
+  {
+    num: '02',
+    title: 'Small on Purpose',
+    body: "We keep the team tight so every project gets full attention. No account managers. No handoffs. You work directly with the people building your thing.",
+  },
+  {
+    num: '03',
+    title: 'Strategy First',
+    body: "Beautiful work that doesn't solve a real problem is just decoration. We ask the hard questions before we open a design file or write a line of code.",
+  },
+  {
+    num: '04',
+    title: 'Built to Last',
+    body: "Trends fade. We design and build for longevity — systems that scale, interfaces that age well, brands that don't feel dated in two years.",
+  },
+];
+
+const founders = [
+  {
+    num: '01',
+    name: 'Bradley Durham',
+    role: 'Co-Founder & Creative Director',
+    bio: 'Bradley has honed his creative abilities and technical web skills to a razor-sharp edge. Before taking a leap to be a partner in 6sMaker, he worked tirelessly creating graphic designs for clients in the print and web industry and has never backed down from a healthy helping of production work.',
+    grad: 'linear-gradient(135deg, #1a3a2a 0%, #0d1f16 100%)',
+  },
+  {
+    num: '02',
+    name: 'Daniel Beavers',
+    role: 'Co-Founder & Strategist',
+    bio: 'Both a creative thinker and a shrewd businessperson, Daniel has been hustling for over 10 years as a freelance, entrepreneur, and now a dedicated business partner. He has learned the fine art of balancing creative genius with expanding his business.',
+    grad: 'linear-gradient(135deg, #0f2233 0%, #071422 100%)',
+  },
+  {
+    num: '03',
+    name: 'Howard Latshaw',
+    role: 'Co-Founder & Business Insights',
+    bio: "Howard's background is in sales, marketing and management. He is top-notch at keeping our clients a happy part of our family. He is our go-to when we need feedback on ideas and brings fresh insight into every project.",
+    grad: 'linear-gradient(135deg, #2e1a0a 0%, #1a0f05 100%)',
+  },
+];
+
+const capabilities = [
+  'Brand Identity & Strategy',
+  'Web Design & Development',
+  'Product Design (UX/UI)',
+  'Digital Strategy',
+  'Motion & Animation',
+  'Video Production',
+];
+---
+
+<Layout title="About" description="6sMaker — A small studio that believes craft matters">
+
+  <!-- HERO -->
+  <section class="about-hero">
+    <div class="container">
+      <span class="label hero-label">About Us</span>
+      <h1 class="about-heading">
+        We are maybe<br/>the last ones<br/>who still <em>care.</em>
+      </h1>
+      <div class="hero-rule"></div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="mission reveal">
+    <div class="container">
+      <div class="mission-inner">
+        <div class="mission-aside">
+          <span class="label">Our Mission</span>
+          <div class="aside-line"></div>
+        </div>
+        <div class="mission-body">
+          <p class="mission-large">
+            6sMaker is a design and development studio built around one simple belief:
+            the best work happens when smart people care deeply about what they're making.
+          </p>
+          <p>
+            We partner with founders, growing companies, and creative teams to build
+            digital products and brand experiences that are genuinely good — functional,
+            beautiful, and built with intention. We're not the biggest studio. We're
+            the most focused one you'll find.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values">
+    <div class="container">
+      <div class="section-hd reveal">
+        <span class="label">What We Believe</span>
+      </div>
+      <div class="values-grid">
+        {values.map((v, i) => (
+          <div class="value-card reveal" style={`--delay: ${i * 0.08}s`}>
+            <span class="value-num">{v.num}</span>
+            <h3 class="value-title">{v.title}</h3>
+            <p class="value-body">{v.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE ARE -->
+  <section class="founders reveal">
+    <div class="container">
+      <div class="founders-layout">
+
+        <!-- LEFT: Featured panel (stacked, one visible at a time) -->
+        <div class="founder-featured">
+          {founders.map((f, i) => (
+            <div class={`founder-panel${i === 0 ? ' active' : ''}`} data-panel={i}>
+              <div class="panel-photo" style={`background: ${f.grad}`}>
+                <span class="panel-num">{f.num}</span>
+              </div>
+              <div class="panel-text">
+                <h3 class="panel-name">{f.name}</h3>
+                <span class="panel-role">{f.role}</span>
+                <p class="panel-bio">{f.bio}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- RIGHT: Stacked tabs -->
+        <div class="founders-stack">
+          <span class="label stack-label">Who We Are</span>
+          {founders.map((f, i) => (
+            <button class={`founder-tab${i === 0 ? ' active' : ''}`} data-target={i}>
+              <div class="tab-avatar" style={`background: ${f.grad}`}></div>
+              <div class="tab-info">
+                <span class="tab-name">{f.name}</span>
+                <span class="tab-role">{f.role}</span>
+              </div>
+              <span class="tab-arrow">→</span>
+            </button>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const tabs = document.querySelectorAll<HTMLButtonElement>('.founder-tab');
+    const panels = document.querySelectorAll<HTMLElement>('.founder-panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = Number(tab.dataset.target);
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        panels[target]?.classList.add('active');
+      });
+    });
+  </script>
+
+  <!-- CAPABILITIES -->
+  <section class="capabilities reveal">
+    <div class="container">
+      <div class="cap-inner">
+        <div class="cap-left">
+          <span class="label">What We Do</span>
+          <h2 class="cap-heading">Full-stack<br/>creative<br/>capability.</h2>
+        </div>
+        <ul class="cap-list">
+          {capabilities.map((c, i) => (
+            <li class="cap-item" style={`--delay: ${i * 0.06}s`}>
+              <span class="cap-arrow">→</span>
+              {c}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="about-cta reveal">
+    <div class="container">
+      <div class="cta-inner">
+        <div>
+          <h2 class="cta-heading">Sounds like<br/>a good fit?</h2>
+          <p class="cta-sub">We'd love to hear about your project.</p>
+        </div>
+        <a href="/contact" class="btn btn-primary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ── HERO ── */
+  .about-hero {
+    padding-top: calc(var(--nav-h) + 5rem);
+    padding-bottom: 6rem;
+    padding-left: var(--px);
+    padding-right: var(--px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-label {
+    display: block;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .about-heading {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 10vw, 9.5rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    max-width: 14ch;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+
+  .about-heading em {
+    font-style: italic;
+    font-family: var(--font-body);
+    font-weight: 300;
+    color: var(--text-muted);
+  }
+
+  .hero-rule {
+    width: 80px;
+    height: 2px;
+    background: var(--accent);
+    margin-top: 3rem;
+    animation: fadeUp 0.6s 0.25s ease both;
+  }
+
+  /* ── MISSION ── */
+  .mission {
+    padding: 7rem var(--px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mission-inner {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .mission-aside {
+    position: sticky;
+    top: calc(var(--nav-h) + 2rem);
+  }
+
+  .aside-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    margin-top: 1rem;
+  }
+
+  .mission-large {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    line-height: 1.55;
+    margin-bottom: 1.75rem;
+    color: var(--text);
+  }
+
+  .mission-body p:last-child {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+  }
+
+  /* ── VALUES ── */
+  .values {
+    padding: 7rem var(--px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-hd {
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .value-card {
+    background: var(--surface);
+    padding: 3rem;
+    transition: background 0.3s;
+  }
+  .value-card:hover { background: var(--surface-2); }
+
+  .value-num {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+
+  .value-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.75rem;
+    line-height: 1;
+  }
+
+  .value-body {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  /* ── WHO WE ARE ── */
+  .founders {
+    padding: 7rem var(--px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .founders-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch;
+  }
+
+  /* LEFT: featured panel */
+  .founder-featured {
+    display: grid;
+    background: var(--surface);
+  }
+
+  .founder-panel {
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(12px);
+  }
+
+  .founder-panel.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .panel-photo {
+    height: 280px;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .panel-num {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.5rem;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .panel-text {
+    padding: 2rem 2.5rem 2.5rem;
+    flex: 1;
+  }
+
+  .panel-name {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .panel-role {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .panel-bio {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+    max-width: 42ch;
+  }
+
+  /* RIGHT: stacked tabs */
+  .founders-stack {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border-left: 2px solid var(--border);
+  }
+
+  .stack-label {
+    display: block;
+    padding: 1.75rem 2rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .founder-tab {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.75rem 2rem;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    color: var(--text);
+    transition: background 0.2s;
+    position: relative;
+  }
+
+  .founder-tab::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transition: transform 0.25s ease;
+  }
+
+  .founder-tab.active::before,
+  .founder-tab:hover::before { transform: scaleY(1); }
+
+  .founder-tab.active { background: var(--surface-2); }
+  .founder-tab:hover:not(.active) { background: rgba(255,255,255,0.02); }
+
+  .tab-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .tab-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .tab-name {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .tab-role {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .tab-arrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    transition: color 0.2s, transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .founder-tab.active .tab-arrow { color: var(--accent); }
+  .founder-tab:hover .tab-arrow { transform: translateX(3px); }
+
+  /* ── CAPABILITIES ── */
+  .capabilities {
+    padding: 7rem var(--px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cap-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .cap-heading {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.03em;
+    margin-top: 1.5rem;
+  }
+
+  .cap-list {
+    list-style: none;
+    border-top: 1px solid var(--border);
+  }
+
+  .cap-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 1.15rem;
+    transition: padding-left 0.25s, color 0.25s;
+    cursor: default;
+  }
+  .cap-item:hover { padding-left: 0.5rem; color: var(--text); }
+  .cap-item:not(:hover) { color: var(--text-muted); }
+
+  .cap-arrow {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    transition: transform 0.25s;
+  }
+  .cap-item:hover .cap-arrow { transform: translateX(4px); }
+
+  /* ── CTA ── */
+  .about-cta {
+    padding: 7rem var(--px);
+    background: var(--surface);
+  }
+
+  .cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .cta-heading {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-sub {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .mission-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .mission-aside { position: static; }
+    .values-grid { grid-template-columns: 1fr; }
+    .founders-layout { grid-template-columns: 1fr; }
+    .founders-stack { border-left: none; border-top: 2px solid var(--border); }
+    .cap-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .cta-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>

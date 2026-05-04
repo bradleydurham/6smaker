@@ -1,0 +1,376 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projectTypes = [
+  'Brand Identity',
+  'Web Design',
+  'Product Design',
+  'Digital Strategy',
+  'Full Project',
+  'Something Else',
+];
+---
+
+<Layout title="Contact" description="6sMaker — Start a project or say hello">
+
+  <section class="contact-hero">
+    <div class="contact-inner">
+
+      <!-- LEFT: Info -->
+      <div class="contact-info">
+        <span class="label info-label">Get in Touch</span>
+        <h1 class="contact-heading">
+          Let's make<br/>something<br/><em>great.</em>
+        </h1>
+        <p class="contact-sub">
+          We take on a limited number of new projects each quarter.
+          Tell us what you're working on and we'll see if it's a fit.
+        </p>
+
+        <div class="contact-details">
+          <div class="detail">
+            <span class="detail-label">Email</span>
+            <a href="mailto:hello@6smaker.com" class="detail-value">hello@6smaker.com</a>
+          </div>
+          <div class="detail">
+            <span class="detail-label">Based In</span>
+            <span class="detail-value">United States</span>
+          </div>
+          <div class="detail">
+            <span class="detail-label">Response Time</span>
+            <span class="detail-value">Within 24 hours</span>
+          </div>
+        </div>
+
+        <div class="contact-socials">
+          <span class="label">Follow Along</span>
+          <div class="socials">
+            <a href="https://www.facebook.com/6sMaker/" class="social-link" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/6smaker/" class="social-link" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="contact-form-wrap reveal">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+            </div>
+            <div class="form-field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="jane@company.com" required />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label>Project Type</label>
+            <div class="type-grid">
+              {projectTypes.map(type => (
+                <label class="type-option">
+                  <input type="radio" name="projectType" value={type} />
+                  <span>{type}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="budget">Budget Range</label>
+            <select id="budget" name="budget">
+              <option value="" disabled selected>Select a range</option>
+              <option>Under $5,000</option>
+              <option>$5,000 – $15,000</option>
+              <option>$15,000 – $30,000</option>
+              <option>$30,000 – $60,000</option>
+              <option>$60,000+</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="message">Tell Us About Your Project</label>
+            <textarea id="message" name="message" rows="5" placeholder="What are you building? What problem are you solving? What does success look like?" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary submit-btn">
+            Send Message →
+          </button>
+
+          <p class="form-note">We read every message personally and respond within one business day.</p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  const form = document.getElementById('contactForm') as HTMLFormElement;
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.submit-btn') as HTMLButtonElement;
+    btn.textContent = 'Message Sent ✓';
+    btn.style.background = '#4caf50';
+    btn.disabled = true;
+  });
+</script>
+
+<style>
+  /* ── LAYOUT ── */
+  .contact-hero {
+    min-height: 100svh;
+    padding-top: var(--nav-h);
+  }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    min-height: calc(100svh - var(--nav-h));
+  }
+
+  /* ── INFO PANEL ── */
+  .contact-info {
+    padding: 4rem 2rem 4rem var(--px);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2rem;
+    position: sticky;
+    top: var(--nav-h);
+    height: calc(100svh - var(--nav-h));
+    overflow-y: auto;
+  }
+
+  .info-label {
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .contact-heading {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    animation: fadeUp 0.7s 0.08s ease both;
+  }
+
+  .contact-heading em {
+    font-style: italic;
+    font-family: var(--font-body);
+    font-weight: 300;
+    color: var(--accent);
+  }
+
+  .contact-sub {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 38ch;
+    animation: fadeUp 0.7s 0.16s ease both;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+  }
+
+  .detail-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .detail-value {
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  a.detail-value:hover { color: var(--accent); }
+
+  .contact-socials .label {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .socials {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .social-link {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
+  }
+  .social-link::before { content: '↗'; font-size: 0.7rem; }
+  .social-link:hover { color: var(--text); }
+
+  /* ── FORM PANEL ── */
+  .contact-form-wrap {
+    padding: 5rem var(--px) 5rem;
+    padding-left: 4rem;
+    background: var(--surface);
+    overflow-y: auto;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 560px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .form-field > label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+  }
+
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.65rem 0;
+    outline: none;
+    transition: border-color 0.25s;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+    width: 100%;
+  }
+
+  input::placeholder,
+  textarea::placeholder { color: var(--text-muted); font-style: italic; }
+
+  input:focus,
+  select:focus,
+  textarea:focus { border-color: var(--accent); }
+
+  select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%237A7268'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    padding-right: 1.5rem;
+  }
+
+  select option { background: var(--surface-2); color: var(--text); }
+
+  textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+
+  /* ── PROJECT TYPE GRID ── */
+  .type-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .type-option {
+    display: block;
+    cursor: pointer;
+  }
+
+  .type-option input[type="radio"] { display: none; }
+
+  .type-option span {
+    display: block;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    text-align: center;
+    transition: all 0.2s;
+  }
+
+  .type-option:hover span { border-color: var(--text-muted); color: var(--text); }
+  .type-option input:checked + span {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  /* ── SUBMIT ── */
+  .submit-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.8rem;
+    padding: 1rem;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .submit-btn:disabled { cursor: default; }
+
+  .form-note {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    .contact-inner { grid-template-columns: 1fr; }
+
+    .contact-info {
+      position: static;
+      height: auto;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      padding-right: var(--px);
+    }
+
+    .contact-form-wrap { padding-left: var(--px); }
+
+    .form-row { grid-template-columns: 1fr; }
+    .type-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

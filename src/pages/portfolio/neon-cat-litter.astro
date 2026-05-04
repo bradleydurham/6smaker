@@ -1,0 +1,366 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const project = {
+  num: '12',
+  title: 'Neon Cat Litter',
+  category: 'Brand Identity',
+  tags: ['Brand', 'Package', 'Print'],
+  year: '2022',
+  desc: 'Neon Litter approached us to invent their brand. This was to a be a fun and sophisticated cat litter. Bright colors to appeal to a young audience and their picky cats. Starting with the logo and their mascot, we created a brand worthy of the pickiest cat or cat connoisseur.',
+  c1: '#1a1a2e',
+  c2: '#10101c',
+  img: '/images/neon-cat-litter.jpg',
+};
+---
+
+<Layout title="Neon Cat Litter" description="6sMaker — Neon Cat Litter case study">
+
+  <!-- HERO -->
+  <section class="project-hero">
+    <div class="hero-visual" style={project.img ? '' : `background: linear-gradient(135deg, ${project.c1}, ${project.c2})`}>
+      {project.img && <img src={project.img} alt={project.title} class="hero-img" />}
+      <span class="hero-num">{project.num}</span>
+    </div>
+    <div class="container">
+      <div class="hero-meta">
+        <a href="/portfolio" class="back-link">← All Work</a>
+        <div class="meta-tags">
+          {project.tags.map(t => <span class="tag">{t}</span>)}
+        </div>
+      </div>
+      <div class="hero-text">
+        <span class="label">{project.category}</span>
+        <h1 class="project-title">{project.title}</h1>
+        <p class="project-lead">{project.desc}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="overview-grid">
+        <div class="overview-aside">
+          <span class="label">Overview</span>
+          <div class="aside-line"></div>
+          <dl class="project-details">
+            <div class="detail-row">
+              <dt>Client</dt>
+              <dd>Neon Cat Litter</dd>
+            </div>
+            <div class="detail-row">
+              <dt>Services</dt>
+              <dd>{project.tags.join(', ')}</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="overview-body">
+          <p class="overview-large">
+            Project overview goes here. Describe the challenge, the client's goals,
+            and the context that shaped the work.
+          </p>
+          <p>
+            Additional detail about the project approach, process, and what made
+            this engagement unique. This is a good place to talk about research,
+            strategy, or any constraints that informed the creative direction.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLACEHOLDER CONTENT BLOCKS -->
+  <section class="section section--dark reveal">
+    <div class="container">
+      <span class="label">The Work</span>
+      <div class="work-blocks">
+        <div class="work-block">
+          <div class="block-visual" style={`background: linear-gradient(135deg, ${project.c1}, ${project.c2})`}></div>
+          <p class="block-caption">Caption describing this piece of work or deliverable.</p>
+        </div>
+        <div class="work-block">
+          <div class="block-visual" style={`background: linear-gradient(160deg, ${project.c2}, ${project.c1})`}></div>
+          <p class="block-caption">Caption describing this piece of work or deliverable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container">
+      <div class="full-visual" style={`background: linear-gradient(135deg, ${project.c1} 0%, ${project.c2} 100%)`}></div>
+      <p class="block-caption full-caption">Full-width visual or description of a key deliverable.</p>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="results-grid">
+        <div class="result-item">
+          <span class="result-num">—</span>
+          <span class="result-label">Result or metric</span>
+        </div>
+        <div class="result-item">
+          <span class="result-num">—</span>
+          <span class="result-label">Result or metric</span>
+        </div>
+        <div class="result-item">
+          <span class="result-num">—</span>
+          <span class="result-label">Result or metric</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAV: PREV / NEXT -->
+  <nav class="project-nav reveal">
+    <a href="/portfolio/board-bandages/" class="nav-item nav-prev">
+      <span class="label">Previous</span>
+      <span class="nav-label">← Board Bandages</span>
+    </a>
+    <a href="/contact" class="nav-item nav-next">
+      <span class="label">Start a Project</span>
+      <span class="nav-label">Work With Us →</span>
+    </a>
+  </nav>
+
+</Layout>
+
+<style>
+  .project-hero { padding-top: var(--nav-h); }
+
+  .hero-visual {
+    height: 420px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-num {
+    position: absolute;
+    top: 1.5rem;
+    left: var(--px);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .back-link {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--text); }
+
+  .meta-tags { display: flex; gap: 0.5rem; }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.6rem;
+  }
+
+  .hero-text {
+    padding: 3.5rem 0 5rem;
+    max-width: 800px;
+  }
+
+  .hero-text .label { display: block; margin-bottom: 1.25rem; }
+
+  .project-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.75rem;
+  }
+
+  .project-lead {
+    font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+    color: var(--text-muted);
+    max-width: 60ch;
+    line-height: 1.65;
+  }
+
+  .section {
+    padding: 6rem var(--px);
+    border-top: 1px solid var(--border);
+  }
+
+  .section--dark { background: var(--surface); }
+
+  .overview-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .overview-aside {
+    position: sticky;
+    top: calc(var(--nav-h) + 2rem);
+    align-self: start;
+  }
+
+  .aside-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    margin: 1rem 0 1.5rem;
+  }
+
+  .project-details { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .detail-row dt {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+    margin-bottom: 0.2rem;
+  }
+
+  .detail-row dd { font-size: 0.95rem; margin: 0; }
+
+  .overview-large {
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .overview-body p:last-child {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+  }
+
+  .work-blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 2.5rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .block-visual { height: 320px; }
+
+  .block-caption,
+  .full-caption {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-top: 1rem;
+  }
+
+  .full-visual {
+    height: 480px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .full-caption { text-align: center; }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .result-item {
+    background: var(--surface);
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .result-num {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    color: var(--accent);
+  }
+
+  .result-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+  }
+
+  .project-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--border);
+  }
+
+  .nav-item {
+    padding: 3rem var(--px);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    transition: background 0.2s;
+  }
+  .nav-item:hover { background: var(--surface); }
+
+  .nav-next {
+    border-left: 1px solid var(--border);
+    text-align: right;
+    align-items: flex-end;
+  }
+
+  .nav-label {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    letter-spacing: 0.04em;
+    color: var(--text);
+  }
+
+  @media (max-width: 768px) {
+    .hero-visual { height: 260px; }
+    .overview-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .overview-aside { position: static; }
+    .work-blocks { grid-template-columns: 1fr; }
+    .results-grid { grid-template-columns: 1fr; }
+    .project-nav { grid-template-columns: 1fr; }
+    .nav-next { border-left: none; border-top: 1px solid var(--border); text-align: left; align-items: flex-start; }
+  }
+</style>
