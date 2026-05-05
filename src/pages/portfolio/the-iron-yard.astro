@@ -53,62 +53,119 @@ const project = {
               <dt>Services</dt>
               <dd>{project.tags.join(', ')}</dd>
             </div>
+            <div class="detail-row">
+              <dt>Deliverables</dt>
+              <dd>
+                <ul class="deliverables-list">
+                  <li>Tradeshow Banners</li>
+                  <li>Window Decals</li>
+                  <li>Classroom Decals</li>
+                  <li>Environmental Graphics</li>
+                </ul>
+              </dd>
+            </div>
           </dl>
         </div>
         <div class="overview-body">
           <p class="overview-large">
-            Project overview goes here. Describe the challenge, the client's goals,
-            and the context that shaped the work.
+            "Education is the most powerful weapon which you can use to change the world." – Nelson Mandela
           </p>
           <p>
-            Additional detail about the project approach, process, and what made
-            this engagement unique. This is a good place to talk about research,
-            strategy, or any constraints that informed the creative direction.
+            The Iron Yard was a computer coding school with branches across the country. During their tenure, we were fortunate enough to work with them to create banners for events at many of their locations. We also helped them to label classrooms both inside and out with identifier decals.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PLACEHOLDER CONTENT BLOCKS -->
+  <!-- GALLERY -->
   <section class="section section--dark reveal">
     <div class="container">
       <span class="label">The Work</span>
-      <div class="work-blocks">
-        <div class="work-block">
-          <div class="block-visual" style={`background: linear-gradient(135deg, ${project.c1}, ${project.c2})`}></div>
-          <p class="block-caption">Caption describing this piece of work or deliverable.</p>
+      <div class="gallery-grid">
+        {[
+          '/images/the-iron-yard/banners/1-The_Iron_Yard-Rollup-Corp-Training.jpg',
+          '/images/the-iron-yard/banners/2-The_Iron_Yard-Rollup-Mockup-new.jpg',
+          '/images/the-iron-yard/banners/3-The_Iron_Yard-Rollup-Mockup-FEDC.jpg',
+          '/images/the-iron-yard/banners/4-The_Iron_Yard-Rollup-Mockup.jpg',
+        ].map((src, i) => (
+          <button class="gallery-thumb" onclick={`openLightbox(${i})`} aria-label={`View image ${i + 1}`}>
+            <img src={src} alt={`Iron Yard banner ${i + 1}`} />
+            <span class="thumb-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" aria-hidden="true" onclick="if(this===arguments[0].target)closeLightbox()">
+    <button class="lb-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+    <button class="lb-prev" onclick="shiftLightbox(-1)" aria-label="Previous">‹</button>
+    <button class="lb-next" onclick="shiftLightbox(1)" aria-label="Next">›</button>
+    <img id="lb-img" src="" alt="" />
+    <span id="lb-counter"></span>
+  </div>
+
+  <script>
+    const images: string[] = [
+      '/images/the-iron-yard/banners/1-The_Iron_Yard-Rollup-Corp-Training.jpg',
+      '/images/the-iron-yard/banners/2-The_Iron_Yard-Rollup-Mockup-new.jpg',
+      '/images/the-iron-yard/banners/3-The_Iron_Yard-Rollup-Mockup-FEDC.jpg',
+      '/images/the-iron-yard/banners/4-The_Iron_Yard-Rollup-Mockup.jpg',
+    ];
+    let current = 0;
+    function openLightbox(i: number) {
+      current = i;
+      (document.getElementById('lb-img') as HTMLImageElement).src = images[i];
+      document.getElementById('lb-counter')!.textContent = `${i + 1} / ${images.length}`;
+      document.getElementById('lightbox')!.setAttribute('aria-hidden', 'false');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox')!.setAttribute('aria-hidden', 'true');
+    }
+    function shiftLightbox(dir: number) {
+      current = (current + dir + images.length) % images.length;
+      (document.getElementById('lb-img') as HTMLImageElement).src = images[current];
+      document.getElementById('lb-counter')!.textContent = `${current + 1} / ${images.length}`;
+    }
+    document.addEventListener('keydown', (e: KeyboardEvent) => {
+      const lb = document.getElementById('lightbox');
+      if (!lb || lb.getAttribute('aria-hidden') === 'true') return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') shiftLightbox(-1);
+      if (e.key === 'ArrowRight') shiftLightbox(1);
+    });
+    (window as unknown as Record<string, unknown>).openLightbox = openLightbox;
+  </script>
+
+  <!-- IMAGE + COPY: IMAGE LEFT -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="img-copy-grid">
+        <div class="img-copy-visual">
+          <img src="/images/the-iron-yard/TIY-frosted-decals.jpg" alt="Iron Yard frosted decals" />
         </div>
-        <div class="work-block">
-          <div class="block-visual" style={`background: linear-gradient(160deg, ${project.c2}, ${project.c1})`}></div>
-          <p class="block-caption">Caption describing this piece of work or deliverable.</p>
+        <div class="img-copy-body">
+          <h2>The Look of Frosted Glass without the Cost</h2>
+          <h4>Frosted Window Decals</h4>
+          <p>The Iron Yard approached us about updating and improving the signage throughout their schools and office space. Based on our suggestion, they used extensively throughout their facilities a decal that looks very similar to frosted glass. They have a clean professional look at a fraction of the cost.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section reveal">
+  <!-- IMAGE + COPY: IMAGE RIGHT -->
+  <section class="section section--dark reveal">
     <div class="container">
-      <div class="full-visual" style={`background: linear-gradient(135deg, ${project.c1} 0%, ${project.c2} 100%)`}></div>
-      <p class="block-caption full-caption">Full-width visual or description of a key deliverable.</p>
-    </div>
-  </section>
-
-  <!-- RESULTS -->
-  <section class="section reveal">
-    <div class="container">
-      <div class="results-grid">
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
+      <div class="img-copy-grid img-copy-grid--img-right">
+        <div class="img-copy-body">
+          <h2>Wall Art Amplified</h2>
+          <h4>Wall Graphics</h4>
+          <p>In addition to the office signage for waypoints, The Iron Yard needed some bold graphics for some of their common areas. These bold wall graphics attract lots of positive attention.</p>
         </div>
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
-        </div>
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
+        <div class="img-copy-visual">
+          <img src="/images/the-iron-yard/TIY-wall-graphic.jpg" alt="Iron Yard wall graphic" />
         </div>
       </div>
     </div>
@@ -252,8 +309,24 @@ const project = {
 
   .detail-row dd { font-size: 0.95rem; margin: 0; }
 
+  .deliverables-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .deliverables-list li { font-size: 0.95rem; }
+  .deliverables-list li::before {
+    content: '—';
+    color: var(--accent);
+    margin-right: 0.5rem;
+  }
+
   .overview-large {
     font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    font-weight: 600;
     line-height: 1.6;
     margin-bottom: 1.5rem;
   }
@@ -354,11 +427,150 @@ const project = {
     color: var(--text);
   }
 
+  .img-copy-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .img-copy-grid--reverse { direction: rtl; }
+  .img-copy-grid--reverse > * { direction: ltr; }
+
+  .img-copy-grid--img-right { grid-template-columns: 2fr 3fr; }
+
+  .img-copy-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .img-copy-body h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+  }
+
+  .img-copy-body h4 {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .img-copy-body p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 2.5rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .gallery-thumb {
+    position: relative;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .gallery-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .gallery-thumb:hover img { transform: scale(1.04); }
+
+  .thumb-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.4);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+
+  .gallery-thumb:hover .thumb-overlay { opacity: 1; }
+
+  #lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.25s;
+  }
+
+  #lightbox[aria-hidden="true"] {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  #lb-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+  }
+
+  #lb-counter {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .lb-close, .lb-prev, .lb-next {
+    position: absolute;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 2rem;
+    line-height: 1;
+    padding: 0.5rem;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .lb-close:hover, .lb-prev:hover, .lb-next:hover { opacity: 1; }
+  .lb-close { top: 1.5rem; right: 1.5rem; font-size: 1.2rem; }
+  .lb-prev { left: 1.5rem; top: 50%; transform: translateY(-50%); }
+  .lb-next { right: 1.5rem; top: 50%; transform: translateY(-50%); }
+
   @media (max-width: 768px) {
     .hero-visual { height: 260px; }
     .overview-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .overview-aside { position: static; }
-    .work-blocks { grid-template-columns: 1fr; }
+    .img-copy-grid { grid-template-columns: 1fr; gap: 2.5rem; direction: ltr; }
+    .gallery-grid { grid-template-columns: 1fr; }
     .results-grid { grid-template-columns: 1fr; }
     .project-nav { grid-template-columns: 1fr; }
     .nav-next { border-left: none; border-top: 1px solid var(--border); text-align: left; align-items: flex-start; }
