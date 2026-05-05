@@ -195,7 +195,7 @@ const projects = [
           <article class="project reveal" style={`--delay: ${(i % 3) * 0.08}s`}>
             {p.slug && <a href={p.slug} class="project-stretched-link" aria-label={p.title}></a>}
             <div class="project-visual" style={p.img ? '' : `--c1: ${p.c1}; --c2: ${p.c2}`}>
-              {p.img && <img src={p.img} alt={p.title} class="visual-img" />}
+              {p.img && <img src={p.img} alt={p.title} class="visual-img" loading="lazy" />}
               <span class="project-num">{p.num}</span>
             </div>
             <div class="project-content">

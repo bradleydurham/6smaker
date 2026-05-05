@@ -127,7 +127,7 @@ const capabilities = [
           {founders.map((f, i) => (
             <div class={`founder-panel${i === 0 ? ' active' : ''}`} data-panel={i}>
               <div class="panel-photo" style={f.img ? '' : `background: ${f.grad}`}>
-                {f.img && <img src={f.img} alt={f.name} class="photo-img" />}
+                {f.img && <img src={f.img} alt={f.name} class="photo-img" loading="lazy" />}
                 <span class="panel-num">{f.num}</span>
               </div>
               <div class="panel-text">
@@ -145,7 +145,7 @@ const capabilities = [
           {founders.map((f, i) => (
             <button class={`founder-tab${i === 0 ? ' active' : ''}`} data-target={i}>
               <div class="tab-avatar" style={f.img ? '' : `background: ${f.grad}`}>
-                {f.img && <img src={f.img} alt={f.name} class="avatar-img" />}
+                {f.img && <img src={f.img} alt={f.name} class="avatar-img" loading="lazy" />}
               </div>
               <div class="tab-info">
                 <span class="tab-name">{f.name}</span>

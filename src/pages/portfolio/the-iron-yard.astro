@@ -90,7 +90,7 @@ const project = {
           '/images/the-iron-yard/banners/4-The_Iron_Yard-Rollup-Mockup.jpg',
         ].map((src, i) => (
           <button class="gallery-thumb" onclick={`openLightbox(${i})`} aria-label={`View image ${i + 1}`}>
-            <img src={src} alt={`Iron Yard banner ${i + 1}`} />
+            <img src={src} alt={`Iron Yard banner ${i + 1}`} loading="lazy" />
             <span class="thumb-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
           </button>
         ))}
@@ -144,7 +144,7 @@ const project = {
     <div class="container">
       <div class="img-copy-grid">
         <div class="img-copy-visual">
-          <img src="/images/the-iron-yard/TIY-frosted-decals.jpg" alt="Iron Yard frosted decals" />
+          <img src="/images/the-iron-yard/TIY-frosted-decals.jpg" alt="Iron Yard frosted decals" loading="lazy" />
         </div>
         <div class="img-copy-body">
           <h2>The Look of Frosted Glass without the Cost</h2>
@@ -165,7 +165,7 @@ const project = {
           <p>In addition to the office signage for waypoints, The Iron Yard needed some bold graphics for some of their common areas. These bold wall graphics attract lots of positive attention.</p>
         </div>
         <div class="img-copy-visual">
-          <img src="/images/the-iron-yard/TIY-wall-graphic.jpg" alt="Iron Yard wall graphic" />
+          <img src="/images/the-iron-yard/TIY-wall-graphic.jpg" alt="Iron Yard wall graphic" loading="lazy" />
         </div>
       </div>
     </div>
