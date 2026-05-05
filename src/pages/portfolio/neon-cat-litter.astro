@@ -57,13 +57,12 @@ const project = {
         </div>
         <div class="overview-body">
           <p class="overview-large">
-            Project overview goes here. Describe the challenge, the client's goals,
-            and the context that shaped the work.
+            "My cats are really sassy and sophisticated, but most importantly, they are picky." – Jason Wu
           </p>
           <p>
-            Additional detail about the project approach, process, and what made
-            this engagement unique. This is a good place to talk about research,
-            strategy, or any constraints that informed the creative direction.
+            Project overview goes here. Describe the challenge, the client's goals,
+            and the context that shaped the work. This is a good place to talk about
+            research, strategy, or any constraints that informed the creative direction.
           </p>
         </div>
       </div>
@@ -74,23 +73,73 @@ const project = {
   <section class="section section--dark reveal">
     <div class="container">
       <span class="label">The Work</span>
-      <div class="work-blocks">
-        <div class="work-block">
-          <div class="block-visual" style={`background: linear-gradient(135deg, ${project.c1}, ${project.c2})`}></div>
-          <p class="block-caption">Caption describing this piece of work or deliverable.</p>
+    </div>
+    <div class="block-visual block-visual--logo">
+      <img src="/images/Neon-Litter-Logo-by-6sMaker.svg" alt="Neon Litter logo" class="block-logo" />
+    </div>
+    <div class="container">
+      <p class="block-caption">Brand Identity — Logo & Mascot</p>
+    </div>
+  </section>
+
+  <!-- COLOR PALETTE -->
+  <section class="section reveal">
+    <div class="container">
+      <span class="label">Brand Colors</span>
+      <div class="palette-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background: #ff40b4;"></div>
+          <span class="swatch-name">Neon Pink</span>
+          <span class="swatch-hex">Pantone 806C</span>
         </div>
-        <div class="work-block">
-          <div class="block-visual" style={`background: linear-gradient(160deg, ${project.c2}, ${project.c1})`}></div>
-          <p class="block-caption">Caption describing this piece of work or deliverable.</p>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #ffab4d;"></div>
+          <span class="swatch-name">Neon Orange</span>
+          <span class="swatch-hex">Pantone 804C</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #38D432;"></div>
+          <span class="swatch-name">Neon Green</span>
+          <span class="swatch-hex">Pantone 802C</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #00aeef;"></div>
+          <span class="swatch-name">Neon Blue</span>
+          <span class="swatch-hex">C100, M0, Y0, K0</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #FFFFFF; border: 1px solid #e0e0e0;"></div>
+          <span class="swatch-name">White</span>
+          <span class="swatch-hex">#FFFFFF</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #111111;"></div>
+          <span class="swatch-name">Black</span>
+          <span class="swatch-hex">#111111</span>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- IMAGE + COPY -->
   <section class="section reveal">
     <div class="container">
-      <div class="full-visual" style={`background: linear-gradient(135deg, ${project.c1} 0%, ${project.c2} 100%)`}></div>
-      <p class="block-caption full-caption">Full-width visual or description of a key deliverable.</p>
+      <div class="img-copy-grid">
+        <div class="img-copy-visual">
+          <img src="/images/Neon-4727.jpg" alt="Neon Cat Litter packaging" class="img-copy-img" />
+        </div>
+        <div class="img-copy-body">
+          <h3 class="img-copy-heading">The package is as important as the product.</h3>
+          <div class="img-copy-item">
+            <h4 class="img-copy-sub">Crowded Market</h4>
+            <p class="img-copy-p">Great package design and excellent color choices help Neon stand out on a shelf full of competitors.</p>
+          </div>
+          <div class="img-copy-item">
+            <h4 class="img-copy-sub">Award Winning</h4>
+            <p class="img-copy-p">Neon won "Best New Cat Product" the year of release at the annual SuperZoo Show.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -111,6 +160,13 @@ const project = {
           <span class="result-label">Result or metric</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- FULL IMAGE -->
+  <section class="section reveal">
+    <div class="container">
+      <img src="/images/Neon-4723.jpg" alt="Neon Cat Litter" class="final-img" />
     </div>
   </section>
 
@@ -252,10 +308,106 @@ const project = {
 
   .detail-row dd { font-size: 0.95rem; margin: 0; }
 
-  .overview-large {
+  .overview-body .overview-large {
     font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    font-weight: 600;
     line-height: 1.6;
     margin-bottom: 1.5rem;
+  }
+
+  /* ── FINAL IMAGE ── */
+  .final-img {
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  /* ── IMAGE + COPY ── */
+  .img-copy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .img-copy-visual { overflow: hidden; }
+
+  .img-copy-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .img-copy-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    letter-spacing: 0.03em;
+    line-height: 1.05;
+    margin-bottom: 2.5rem;
+  }
+
+  .img-copy-item { margin-bottom: 2rem; }
+  .img-copy-item:last-child { margin-bottom: 0; }
+
+  .img-copy-sub {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .img-copy-p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .img-copy-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+
+  /* ── PALETTE ── */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2px;
+    margin-top: 2.5rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .swatch { display: flex; flex-direction: column; }
+
+  .swatch-color {
+    height: 140px;
+  }
+
+  .swatch-name {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text);
+    margin-top: 0.75rem;
+  }
+
+  .swatch-hex {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+  }
+
+  @media (max-width: 768px) {
+    .palette-grid { grid-template-columns: repeat(3, 1fr); }
   }
 
   .overview-body p:last-child {
@@ -273,7 +425,23 @@ const project = {
     margin-right: auto;
   }
 
-  .block-visual { height: 320px; }
+  .block-visual { height: 320px; position: relative; }
+
+  .block-visual--logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0eeeb;
+    max-width: 1200px;
+    margin: 2.5rem auto 0;
+    padding: 5rem 3rem;
+  }
+
+  .block-logo {
+    width: 62.5%;
+    max-width: 700px;
+    height: auto;
+  }
 
   .block-caption,
   .full-caption {
