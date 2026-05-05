@@ -31,6 +31,7 @@ const founders = [
     role: 'Co-Founder & Creative Director',
     bio: 'Bradley has honed his creative abilities and technical web skills to a razor-sharp edge. Before taking a leap to be a partner in 6sMaker, he worked tirelessly creating graphic designs for clients in the print and web industry and has never backed down from a healthy helping of production work.',
     grad: 'linear-gradient(135deg, #1a3a2a 0%, #0d1f16 100%)',
+    img: '/images/Bradley-copy-scaled.jpg',
   },
   {
     num: '02',
@@ -38,6 +39,7 @@ const founders = [
     role: 'Co-Founder & Strategist',
     bio: 'Both a creative thinker and a shrewd businessperson, Daniel has been hustling for over 10 years as a freelance, entrepreneur, and now a dedicated business partner. He has learned the fine art of balancing creative genius with expanding his business.',
     grad: 'linear-gradient(135deg, #0f2233 0%, #071422 100%)',
+    img: '/images/Daniel-copy-scaled.jpg',
   },
   {
     num: '03',
@@ -45,6 +47,7 @@ const founders = [
     role: 'Co-Founder & Business Insights',
     bio: "Howard's background is in sales, marketing and management. He is top-notch at keeping our clients a happy part of our family. He is our go-to when we need feedback on ideas and brings fresh insight into every project.",
     grad: 'linear-gradient(135deg, #2e1a0a 0%, #1a0f05 100%)',
+    img: '/images/Howard-copy-scaled.jpg',
   },
 ];
 
@@ -55,6 +58,7 @@ const capabilities = [
   'Digital Strategy',
   'Motion & Animation',
   'Video Production',
+  'Installation',
 ];
 ---
 
@@ -118,14 +122,16 @@ const capabilities = [
     <div class="container">
       <div class="founders-layout">
 
-        <!-- LEFT: Featured panel (stacked, one visible at a time) -->
+        <!-- TOP: Photo left, bio right (stacked panels) -->
         <div class="founder-featured">
           {founders.map((f, i) => (
             <div class={`founder-panel${i === 0 ? ' active' : ''}`} data-panel={i}>
-              <div class="panel-photo" style={`background: ${f.grad}`}>
+              <div class="panel-photo" style={f.img ? '' : `background: ${f.grad}`}>
+                {f.img && <img src={f.img} alt={f.name} class="photo-img" />}
                 <span class="panel-num">{f.num}</span>
               </div>
               <div class="panel-text">
+                <span class="label selector-label">Who We Are</span>
                 <h3 class="panel-name">{f.name}</h3>
                 <span class="panel-role">{f.role}</span>
                 <p class="panel-bio">{f.bio}</p>
@@ -134,17 +140,17 @@ const capabilities = [
           ))}
         </div>
 
-        <!-- RIGHT: Stacked tabs -->
-        <div class="founders-stack">
-          <span class="label stack-label">Who We Are</span>
+        <!-- BOTTOM: 3 founder selector tabs -->
+        <div class="founders-selector">
           {founders.map((f, i) => (
             <button class={`founder-tab${i === 0 ? ' active' : ''}`} data-target={i}>
-              <div class="tab-avatar" style={`background: ${f.grad}`}></div>
+              <div class="tab-avatar" style={f.img ? '' : `background: ${f.grad}`}>
+                {f.img && <img src={f.img} alt={f.name} class="avatar-img" />}
+              </div>
               <div class="tab-info">
                 <span class="tab-name">{f.name}</span>
                 <span class="tab-role">{f.role}</span>
               </div>
-              <span class="tab-arrow">→</span>
             </button>
           ))}
         </div>
@@ -339,15 +345,14 @@ const capabilities = [
   }
 
   .founders-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 2px;
     max-width: 1200px;
     margin: 0 auto;
-    align-items: stretch;
   }
 
-  /* LEFT: featured panel */
+  /* TOP: stacked panels, each is photo-left / bio-right */
   .founder-featured {
     display: grid;
     background: var(--surface);
@@ -355,12 +360,13 @@ const capabilities = [
 
   .founder-panel {
     grid-area: 1 / 1;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 360px 1fr;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s ease, transform 0.4s ease;
     transform: translateY(12px);
+    min-height: 380px;
   }
 
   .founder-panel.active {
@@ -370,9 +376,17 @@ const capabilities = [
   }
 
   .panel-photo {
-    height: 280px;
     position: relative;
-    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .photo-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
   }
 
   .panel-num {
@@ -386,13 +400,21 @@ const capabilities = [
   }
 
   .panel-text {
-    padding: 2rem 2.5rem 2.5rem;
-    flex: 1;
+    padding: 3rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 1px solid var(--border);
+  }
+
+  .selector-label {
+    display: block;
+    margin-bottom: 2rem;
   }
 
   .panel-name {
     font-family: var(--font-display);
-    font-size: 2.8rem;
+    font-size: 3rem;
     letter-spacing: 0.03em;
     line-height: 1;
     margin-bottom: 0.5rem;
@@ -405,28 +427,21 @@ const capabilities = [
     text-transform: uppercase;
     letter-spacing: 0.14em;
     color: var(--accent);
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
   }
 
   .panel-bio {
     font-size: 1rem;
     color: var(--text-muted);
     line-height: 1.75;
-    max-width: 42ch;
+    max-width: 48ch;
   }
 
-  /* RIGHT: stacked tabs */
-  .founders-stack {
-    display: flex;
-    flex-direction: column;
-    background: var(--surface);
-    border-left: 2px solid var(--border);
-  }
-
-  .stack-label {
-    display: block;
-    padding: 1.75rem 2rem 1.25rem;
-    border-bottom: 1px solid var(--border);
+  /* BOTTOM: 3 selector tabs in a row */
+  .founders-selector {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
   }
 
   .founder-tab {
@@ -435,8 +450,7 @@ const capabilities = [
     gap: 1rem;
     padding: 1.75rem 2rem;
     border: none;
-    border-bottom: 1px solid var(--border);
-    background: transparent;
+    background: var(--surface);
     cursor: pointer;
     text-align: left;
     color: var(--text);
@@ -444,18 +458,18 @@ const capabilities = [
     position: relative;
   }
 
-  .founder-tab::before {
+  .founder-tab::after {
     content: '';
     position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 2px;
+    top: 0; left: 0; right: 0;
+    height: 2px;
     background: var(--accent);
-    transform: scaleY(0);
+    transform: scaleX(0);
     transition: transform 0.25s ease;
   }
 
-  .founder-tab.active::before,
-  .founder-tab:hover::before { transform: scaleY(1); }
+  .founder-tab.active::after,
+  .founder-tab:hover::after { transform: scaleX(1); }
 
   .founder-tab.active { background: var(--surface-2); }
   .founder-tab:hover:not(.active) { background: rgba(255,255,255,0.02); }
@@ -465,6 +479,15 @@ const capabilities = [
     height: 44px;
     border-radius: 50%;
     flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
   }
 
   .tab-info {
@@ -492,17 +515,6 @@ const capabilities = [
     overflow: hidden;
     text-overflow: ellipsis;
   }
-
-  .tab-arrow {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    transition: color 0.2s, transform 0.2s;
-    flex-shrink: 0;
-  }
-
-  .founder-tab.active .tab-arrow { color: var(--accent); }
-  .founder-tab:hover .tab-arrow { transform: translateX(3px); }
 
   /* ── CAPABILITIES ── */
   .capabilities {
@@ -593,8 +605,10 @@ const capabilities = [
     .mission-inner { grid-template-columns: 1fr; gap: 2rem; }
     .mission-aside { position: static; }
     .values-grid { grid-template-columns: 1fr; }
-    .founders-layout { grid-template-columns: 1fr; }
-    .founders-stack { border-left: none; border-top: 2px solid var(--border); }
+    .founder-panel { grid-template-columns: 1fr; }
+    .panel-photo { min-height: 240px; }
+    .panel-text { border-left: none; border-top: 1px solid var(--border); padding: 2rem; }
+    .founders-selector { grid-template-columns: 1fr; }
     .cap-inner { grid-template-columns: 1fr; gap: 3rem; }
     .cta-inner { flex-direction: column; align-items: flex-start; }
   }
