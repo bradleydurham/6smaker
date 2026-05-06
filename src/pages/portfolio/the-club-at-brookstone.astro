@@ -10,6 +10,14 @@ const project = {
   desc: 'We created a lasting brand identity that would convey the multitude of opportunities available to members of The Club at Brookstone. They were in transition from just a golf club to a multi-faceted club with many different sports as well as dining.',
   c1: '#2a1a2a',
   c2: '#190f19',
+  colors: [
+    { hex: '#003b76', name: 'Brookstone Blue', cmyk: 'C100 | M68 | Y0 | K39' },
+    { hex: '#bfd1da', name: 'Ridge Blue',      cmyk: 'C11 | M0 | Y0 | K16' },
+    { hex: '#ab85bc', name: 'Golf',            cmyk: 'C33 | M52 | Y0 | K0' },
+    { hex: '#b3d234', name: 'Tennis',          cmyk: 'C35 | M0 | Y100 | K0' },
+    { hex: '#f37120', name: 'Club',            cmyk: 'C0 | M69 | Y100 | K0' },
+    { hex: '#75cfe7', name: 'Dining',          cmyk: 'C49 | M0 | Y7 | K0' },
+  ],
 };
 ---
 
@@ -55,60 +63,76 @@ const project = {
         </div>
         <div class="overview-body">
           <p class="overview-large">
-            Project overview goes here. Describe the challenge, the client's goals,
-            and the context that shaped the work.
+            “There are no shortcuts on the quest for perfection.” – Ben Hogan
           </p>
           <p>
-            Additional detail about the project approach, process, and what made
-            this engagement unique. This is a good place to talk about research,
-            strategy, or any constraints that informed the creative direction.
+            With this thought in mind, we attempted to create a lasting brand identity that would convey the multitude of opportunities available to members of The Club at Brookstone. They were in transition from just a golf club to a multi-faceted club with many different sports as well as dining.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PLACEHOLDER CONTENT BLOCKS -->
+  <!-- BRAND COLORS -->
+  <section class="section reveal">
+    <div class="container">
+      <span class="label">Brand Colors</span>
+      <div class="color-palette">
+        {project.colors.map(c => (
+          <div class="color-swatch">
+            <div class="swatch-block" style={`background: ${c.hex}`}></div>
+            <span class="swatch-name">{c.name}</span>
+            <span class="swatch-hex">{c.cmyk}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY -->
   <section class="section section--dark reveal">
     <div class="container">
-      <span class="label">The Work</span>
-      <div class="work-blocks">
-        <div class="work-block">
-          <div class="block-visual" style={`background: linear-gradient(135deg, ${project.c1}, ${project.c2})`}></div>
-          <p class="block-caption">Caption describing this piece of work or deliverable.</p>
+      <span class="label">Typography</span>
+      <div class="type-grid">
+        <div class="type-item">
+          <p class="type-sample type-futura">Aa</p>
+          <div class="type-alphabet type-futura">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
+          <div class="type-meta">
+            <span class="type-name">Futura Book</span>
+            <span class="type-class">Sans-Serif</span>
+          </div>
+          <p class="type-specimen type-futura">The Club at Brookstone offers world-class amenities and an unparalleled experience for its members.</p>
         </div>
-        <div class="work-block">
-          <div class="block-visual" style={`background: linear-gradient(160deg, ${project.c2}, ${project.c1})`}></div>
-          <p class="block-caption">Caption describing this piece of work or deliverable.</p>
+        <div class="type-item">
+          <p class="type-sample type-abril">Aa</p>
+          <div class="type-alphabet type-abril">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
+          <div class="type-meta">
+            <span class="type-name">Abril Text</span>
+            <span class="type-class">Serif</span>
+          </div>
+          <p class="type-specimen type-abril">The Club at Brookstone offers world-class amenities and an unparalleled experience for its members.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section reveal">
-    <div class="container">
-      <div class="full-visual" style={`background: linear-gradient(135deg, ${project.c1} 0%, ${project.c2} 100%)`}></div>
-      <p class="block-caption full-caption">Full-width visual or description of a key deliverable.</p>
+  <!-- IMAGE + TEXT: image left -->
+  <section class="section split-section reveal">
+    <div class="split-image split-image--light"><img src="/images/brookstone/01-Artboard-1-copy-9-1.png" alt="Brookstone brand identity" loading="lazy" /></div>
+    <div class="split-text">
+      <span class="label">Brand Identity</span>
+      <h2 class="split-heading">Refining and polishing of an idea into a true gem.</h2>
+      <p>The Club at Brookstone had the start on their logo. It had recently been incorporated into onsite signage. So we knew it could not be changed. However, there was room for refinement. We took the existing logo and made slight tweaks to greatly improve the overall appearance.</p>
     </div>
   </section>
 
-  <!-- RESULTS -->
-  <section class="section reveal">
-    <div class="container">
-      <div class="results-grid">
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
-        </div>
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
-        </div>
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
-        </div>
-      </div>
+  <!-- IMAGE + TEXT: image right -->
+  <section class="section split-section split-section--reverse reveal">
+    <div class="split-image"><img src="/images/brookstone/02-brookstone-website-1.jpg" alt="Brookstone community of websites" loading="lazy" /></div>
+    <div class="split-text">
+      <span class="label">A Community of Websites</span>
+      <h2 class="split-heading">An interesting web design challenge...</h2>
+      <p>The Club at Brookstone is a multi-faceted entity. They are one club that houses many separate amenities. Golf, Tennis, Dining, and Social activities all deserved their own space. To carve out equal space and attention for all these different venues, we built each their own site and unified them under one brand. This way each could operate independently and maintain some autonomy.</p>
     </div>
   </section>
 
@@ -127,6 +151,7 @@ const project = {
 </Layout>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Abril+Text:ital,wght@0,400;0,600;1,400&display=swap');
   .project-hero { padding-top: var(--nav-h); }
 
   .hero-visual {
@@ -273,6 +298,148 @@ const project = {
     margin-top: 1rem;
   }
 
+  .color-palette {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2px;
+    margin-top: 2.5rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .color-swatch { display: flex; flex-direction: column; }
+
+  .swatch-block { height: 160px; }
+
+  .swatch-name {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    margin-top: 0.9rem;
+  }
+
+  .swatch-hex {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+  }
+
+  .type-futura { font-family: 'Futura Book', 'Futura', 'Century Gothic', sans-serif; }
+  .type-abril  { font-family: 'Abril Text', Georgia, serif; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 2.5rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .type-item {
+    background: var(--bg);
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .type-sample {
+    font-size: clamp(5rem, 10vw, 9rem);
+    line-height: 1;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .type-alphabet {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .type-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .type-name {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+  }
+
+  .type-class {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+  }
+
+  .type-specimen {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .split-section {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--border);
+  }
+
+  .split-section--reverse .split-image { order: 2; }
+  .split-section--reverse .split-text  { order: 1; }
+
+  .split-image {
+    min-height: 520px;
+    overflow: hidden;
+  }
+
+  .split-image--light { background: var(--text); }
+
+  .split-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .split-text {
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 560px;
+  }
+
+  .split-section--reverse .split-text { margin-left: auto; }
+
+  .split-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.75rem);
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+  }
+
+  .split-text p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-muted);
+  }
+
   .full-visual {
     height: 480px;
     max-width: 1200px;
@@ -347,6 +514,13 @@ const project = {
     .overview-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .overview-aside { position: static; }
     .work-blocks { grid-template-columns: 1fr; }
+    .color-palette { grid-template-columns: repeat(3, 1fr); }
+    .type-grid { grid-template-columns: 1fr; }
+    .split-section { grid-template-columns: 1fr; }
+    .split-section--reverse .split-image { order: 0; }
+    .split-section--reverse .split-text  { order: 0; }
+    .split-image { min-height: 280px; }
+    .split-text { padding: 2.5rem var(--px); max-width: 100%; }
     .results-grid { grid-template-columns: 1fr; }
     .project-nav { grid-template-columns: 1fr; }
     .nav-next { border-left: none; border-top: 1px solid var(--border); text-align: left; align-items: flex-start; }
