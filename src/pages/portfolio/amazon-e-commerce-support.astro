@@ -7,7 +7,7 @@ const project = {
   category: 'Brand Identity',
   tags: ['Branding', 'Strategy', 'Print'],
   year: '2025',
-  desc: 'Complete visual identity for an architecture firm redefining how we think about urban living spaces.',
+  desc: '6sMaker revamped Litter Pearls\' entire Amazon presence — from product pages and photography to A+ content and a branded store — resulting in measurable gains in views and orders.',
   c1: '#1a3a2a',
   c2: '#0d1f16',
 };
@@ -17,7 +17,11 @@ const project = {
 
   <!-- HERO -->
   <section class="project-hero">
-    <div class="hero-visual" style={`background: linear-gradient(135deg, ${project.c1}, ${project.c2})`}>
+    <div class="hero-visual">
+      <video autoplay muted loop playsinline class="hero-video">
+        <source src="/images/amazon/Amazon-Header-1.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
       <span class="hero-num">{project.num}</span>
     </div>
     <div class="container">
@@ -45,70 +49,110 @@ const project = {
           <dl class="project-details">
             <div class="detail-row">
               <dt>Client</dt>
-              <dd>Client Name</dd>
+              <dd>Litter Pearls</dd>
             </div>
             <div class="detail-row">
               <dt>Services</dt>
               <dd>{project.tags.join(', ')}</dd>
             </div>
+            <div class="detail-row">
+              <dt>Deliverables</dt>
+              <dd>Photography</dd>
+              <dd>Copywriting</dd>
+              <dd>Brand Store</dd>
+              <dd>Variant Images</dd>
+              <dd>A+ Content</dd>
+            </div>
           </dl>
         </div>
         <div class="overview-body">
           <p class="overview-large">
-            Project overview goes here. Describe the challenge, the client's goals,
-            and the context that shaped the work.
+            “Popular! You’re gonna be popular!” – Stephen Schwartz, from Wicked
           </p>
           <p>
-            Additional detail about the project approach, process, and what made
-            this engagement unique. This is a good place to talk about research,
-            strategy, or any constraints that informed the creative direction.
+            If websites visits are any indication, Amazon.com is the most popular retail website in all of the internet.*  To capitalize there, Litter Pearls asked us to make their popularity within the e-commerce giant our new project. We left no detail untouched, making over their product pages with optimized copy, new photography, variant images and the all-important A+ content. Further, we designed and developed their multi-page Litter Pearls Brand Store. The Amazon algorithm and shoppers responded, and soon, improved performance in views and orders were measured across the Litter Pearls product line.
           </p>
+          <p>* <a href="https://www.statista.com/statistics/274708/online-retail-and-auction-ranked-by-worldwide-audiences/" class="source-link">Statista — Online Retail Ranked by Worldwide Audiences</a></p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PLACEHOLDER CONTENT BLOCKS -->
+  <!-- BRAND STORE -->
   <section class="section section--dark reveal">
     <div class="container">
       <span class="label">The Work</span>
-      <div class="work-blocks">
-        <div class="work-block">
-          <div class="block-visual" style={`background: linear-gradient(135deg, ${project.c1}, ${project.c2})`}></div>
-          <p class="block-caption">Caption describing this piece of work or deliverable.</p>
-        </div>
-        <div class="work-block">
-          <div class="block-visual" style={`background: linear-gradient(160deg, ${project.c2}, ${project.c1})`}></div>
-          <p class="block-caption">Caption describing this piece of work or deliverable.</p>
-        </div>
-      </div>
+      <h2 class="work-heading">Amazon Brand Store</h2>
+      <video autoplay muted loop playsinline class="work-video">
+        <source src="/images/amazon/Amazon-Brand-Store-Overview_2.mp4" type="video/mp4" />
+      </video>
+      <p class="work-body">
+        The Amazon Brand Store is a one-stop-shop for a specific product line or all of your brand's products. The store is designed to best organize and display your online merchandise and assist shoppers with their buying decisions. In addition to shoppable tiles and copy points, incorporating exciting graphics and videos into your brand store will not only educate and engage the viewer, they will also increase your brand awareness and recall in an ecommerce site packed with competition. While viewing a product detail page, Amazon shoppers can click to follow a link to visit the brand's store, which gives them additional information and a wider product selection to consider. Your brand store also serves as a landing page and an excellent click through destination for your paid advertising campaigns within Amazon, Amazon's external advertising networks, and through your own website and digital marketing channels, such as social media, search engines, and email marketing. Amazon Brand Stores are versatile with much to offer vendors and sellers to improve the ecommerce experience and strengthen the connection between the customer and the brand.
+      </p>
     </div>
   </section>
 
-  <section class="section reveal">
+  <!-- VARIANT IMAGES -->
+  <section class="section section--dark scroll-section reveal">
     <div class="container">
-      <div class="full-visual" style={`background: linear-gradient(135deg, ${project.c1} 0%, ${project.c2} 100%)`}></div>
-      <p class="block-caption full-caption">Full-width visual or description of a key deliverable.</p>
+      <h2 class="work-heading">Variant Images</h2>
+      <video autoplay muted loop playsinline class="work-video">
+        <source src="/images/amazon/Amazon-Variant-Images.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="scroll-strip">
+      <div class="scroll-item"><img src="/images/amazon/scroll-gallery/01-SilicaGelCrystals-Tracksless-scaled.jpg.webp" alt="Litter Pearls Silica Gel Crystals Tracksless" loading="lazy" /></div>
+      <div class="scroll-item"><img src="/images/amazon/scroll-gallery/02-CrystalClear-scaled.jpg.webp" alt="Litter Pearls Crystal Clear" loading="lazy" /></div>
+      <div class="scroll-item"><img src="/images/amazon/scroll-gallery/03-UltraClump-D3-scaled.jpg.webp" alt="Litter Pearls UltraClump" loading="lazy" /></div>
+      <div class="scroll-item"><img src="/images/amazon/scroll-gallery/04-Instructions-For-Use-UltraClump-scaled.jpg.webp" alt="Litter Pearls UltraClump Instructions" loading="lazy" /></div>
+      <div class="scroll-item"><img src="/images/amazon/scroll-gallery/05-Odorbond-CrystalClear-scaled.jpg.webp" alt="Litter Pearls Odorbond Crystal Clear" loading="lazy" /></div>
+      <div class="scroll-item"><img src="/images/amazon/scroll-gallery/06-MicroFresh-D3-scaled.jpg.webp" alt="Litter Pearls MicroFresh" loading="lazy" /></div>
+      <div class="scroll-item"><img src="/images/amazon/scroll-gallery/07-Odorbond-MicroCrystals-scaled.jpg.webp" alt="Litter Pearls Odorbond MicroCrystals" loading="lazy" /></div>
+      <div class="scroll-item"><img src="/images/amazon/scroll-gallery/08-MicroCrystals-D2-scaled.jpg.webp" alt="Litter Pearls MicroCrystals" loading="lazy" /></div>
+      <div class="scroll-item"><img src="/images/amazon/scroll-gallery/09-Languages-MicroCrystals-scaled.jpg.webp" alt="Litter Pearls MicroCrystals Languages" loading="lazy" /></div>
+      <div class="scroll-item"><img src="/images/amazon/scroll-gallery/10-Tracksless-D3-scaled.jpg.webp" alt="Litter Pearls Tracksless" loading="lazy" /></div>
+    </div>
+    <div class="container" style="padding-top: 3rem; padding-bottom: 4rem;">
+      <p class="work-body">
+        It must be true. "A picture is worth a thousand words," according to Fred. R. Barnard, and it seems we all concur. Amazon recommends each product page have at least six high quality images in the product image slider to tell the product story. While the first image is always a main image of the product, the following variant images can utilize a variety of tactics to help customers understand and evaluate the item. We employed product, environment and lifestyle photography and graphic design to convey the top features and differentiators of the Litter Pearls cat litter line, taking the opportunity to emphasize key elements of the brand identity. The important visual information to convey can vary between each Amazon product category. Variant images speak your target audience's (non-verbal) language to facilitate comprehension and preference for your Amazon item.
+      </p>
     </div>
   </section>
 
-  <!-- RESULTS -->
+  <!-- A+ CONTENT -->
   <section class="section reveal">
     <div class="container">
-      <div class="results-grid">
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
-        </div>
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
-        </div>
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
-        </div>
+      <h2 class="work-heading">A+ Content</h2>
+      <video autoplay muted loop playsinline class="work-video">
+        <source src="/images/amazon/Amazon-Aplus-Content.mp4" type="video/mp4" />
+      </video>
+      <p class="work-body">
+        After optimizing your Amazon product page fields, including title, bulleted copy, and product description, A+ Content is the next logical tool to enhance your item's search result opportunities and give shoppers helpful information to consider. A+ Content is a collection of mixed media and text that appears in the From the Manufacturer section of the page. Keyword-laden copy improves your product's discoverability by in-market shoppers, and photography, graphics and video engage the visitor and increase understanding, preference and conversions. If your product is part of a line of similar products that you want customers to also consider, the A+ comparison chart module allows for this type of cross comparison and promotion. Ultimately, A+ Content can improve both your search rankings and the customer experience, resulting in better performing product pages.
+      </p>
+    </div>
+  </section>
+
+  <!-- PHOTOGRAPHY -->
+  <section class="section section--dark reveal">
+    <div class="container">
+      <h2 class="work-heading">Photography</h2>
+      <div class="photo-grid">
+        <figure class="photo-item"><img src="/images/amazon/photo-gallery/01-LItter_Pearls-Store-Micro_Fresh-Photo-v1.jpg" alt="Litter Pearls MicroFresh" loading="lazy" /></figure>
+        <figure class="photo-item"><img src="/images/amazon/photo-gallery/02-LItter_Pearls-Store-Micro_Crystals-Photo-v1.jpg" alt="Litter Pearls MicroCrystals" loading="lazy" /></figure>
+        <figure class="photo-item"><img src="/images/amazon/photo-gallery/03-LItter_Pearls-Store-Ultra_Clump-Photo-v1.jpg" alt="Litter Pearls UltraClump" loading="lazy" /></figure>
+        <figure class="photo-item"><img src="/images/amazon/photo-gallery/04-Litter_Pearls-Tracksless-Lightweight-460-scaled.jpg.webp" alt="Litter Pearls Tracksless Lightweight" loading="lazy" /></figure>
+        <figure class="photo-item"><img src="/images/amazon/photo-gallery/05-LItter_Pearls-Store-Crystal_Clear-Photo-v1.jpg" alt="Litter Pearls Crystal Clear" loading="lazy" /></figure>
+        <figure class="photo-item"><img src="/images/amazon/photo-gallery/06-Litter_Pearls-Tracksless-Odorbond-scaled.jpg.webp" alt="Litter Pearls Tracksless Odorbond" loading="lazy" /></figure>
+        <figure class="photo-item"><img src="/images/amazon/photo-gallery/07-7LB-LP-UltraClump-4-scaled.jpg.webp" alt="Litter Pearls UltraClump 7lb" loading="lazy" /></figure>
+        <figure class="photo-item"><img src="/images/amazon/photo-gallery/08-7LB-LP-MicroFresh-1-scaled.jpg.webp" alt="Litter Pearls MicroFresh 7lb" loading="lazy" /></figure>
+        <figure class="photo-item"><img src="/images/amazon/photo-gallery/09-7LB-LP-MicroCrystals-1-scaled.jpg.webp" alt="Litter Pearls MicroCrystals 7lb" loading="lazy" /></figure>
+        <figure class="photo-item"><img src="/images/amazon/photo-gallery/10-7LB-LP-CrystalClear-4-scaled.jpg.webp" alt="Litter Pearls Crystal Clear 7lb" loading="lazy" /></figure>
+        <figure class="photo-item"><img src="/images/amazon/photo-gallery/11-7LB-LP-Tracksless-4-scaled.jpg.webp" alt="Litter Pearls Tracksless 7lb" loading="lazy" /></figure>
+        <figure class="photo-item"><img src="/images/amazon/photo-gallery/12-7LB-LP-Tracksless-5-scaled.jpg.webp" alt="Litter Pearls Tracksless 7lb Alt" loading="lazy" /></figure>
       </div>
+      <p class="work-body">
+        Amazon encourages the use of high quality images to help shoppers understand products and make buying decisions. There are numerous ways to utilize meaningful photography on a product page, including main images, variant images, A+ Content and comparison charts. Amazon Brand Stores also have multiple image and video module options for your store design. The photography mix we use for our Litter Pearls client on Amazon includes photos of the product, product packaging, the product in its intended environment and lifestyle shots with consumers. These photo assets are highlighted throughout the Amazon experience for anyone shopping for cat litter, and they convey product quality and the sentiment of customer satisfaction (both human and feline). While Amazon has some requirements and guidelines related to photography and video, they are easily incorporated into most creative strategies for product promotion and brand marketing.
+      </p>
     </div>
   </section>
 
@@ -124,17 +168,58 @@ const project = {
     </a>
   </nav>
 
+  <div id="lightbox" aria-hidden="true">
+    <button id="lb-close" aria-label="Close">&#x2715;</button>
+    <button id="lb-prev" aria-label="Previous">&#8592;</button>
+    <button id="lb-next" aria-label="Next">&#8594;</button>
+    <div id="lb-inner">
+      <img id="lb-img" src="" alt="" />
+      <p id="lb-caption"></p>
+    </div>
+  </div>
+
 </Layout>
 
 <style>
+  .source-link {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .source-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
   /* ── HERO ── */
   .project-hero {
     padding-top: var(--nav-h);
   }
 
   .hero-visual {
-    height: 420px;
+    height: 600px;
     position: relative;
+    overflow: hidden;
+  }
+
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
   }
 
   .hero-num {
@@ -254,6 +339,7 @@ const project = {
   .detail-row dd {
     font-size: 0.95rem;
     margin: 0;
+    line-height: 1.8;
   }
 
   .overview-large {
@@ -277,6 +363,63 @@ const project = {
     margin-left: auto;
     margin-right: auto;
   }
+
+  .work-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    letter-spacing: 0.02em;
+    margin: 1.5rem 0 2rem;
+  }
+
+  .work-video {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .work-body {
+    max-width: 80ch;
+    margin: 2rem auto 0;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--text-muted);
+  }
+
+  .scroll-section {
+    padding-bottom: 0;
+  }
+
+  .scroll-strip {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-top: 2.5rem;
+    cursor: grab;
+  }
+
+  .scroll-strip::-webkit-scrollbar { display: none; }
+  .scroll-strip:active { cursor: grabbing; }
+
+  .scroll-item {
+    flex-shrink: 0;
+    height: 270px;
+    scroll-snap-align: start;
+    cursor: zoom-in;
+    overflow: hidden;
+  }
+
+  .scroll-item img {
+    height: 100%;
+    width: auto;
+    display: block;
+    transition: opacity 0.2s;
+  }
+
+  .scroll-item:hover img { opacity: 0.85; }
 
   .block-visual {
     height: 320px;
@@ -363,6 +506,105 @@ const project = {
     color: var(--text);
   }
 
+  /* ── PHOTO GRID ── */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .photo-item {
+    margin: 0;
+    overflow: hidden;
+    cursor: zoom-in;
+    aspect-ratio: 1;
+  }
+
+  .photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.2s, transform 0.3s;
+  }
+
+  .photo-item:hover img {
+    opacity: 0.85;
+    transform: scale(1.03);
+  }
+
+  @media (max-width: 900px) {
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 480px) {
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ── LIGHTBOX ── */
+  #lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+  }
+
+  #lightbox.is-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  #lb-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+
+  #lb-img {
+    max-width: 90vw;
+    max-height: 80vh;
+    object-fit: contain;
+    display: block;
+  }
+
+  #lb-caption {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.5);
+    margin: 0;
+  }
+
+  #lb-close,
+  #lb-prev,
+  #lb-next {
+    position: fixed;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.6);
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 1rem;
+    transition: color 0.2s;
+    line-height: 1;
+  }
+  #lb-close:hover, #lb-prev:hover, #lb-next:hover { color: #fff; }
+
+  #lb-close { top: 1.5rem; right: 1.5rem; font-size: 1.1rem; }
+  #lb-prev  { left: 1.5rem; top: 50%; transform: translateY(-50%); font-size: 1.5rem; }
+  #lb-next  { right: 1.5rem; top: 50%; transform: translateY(-50%); font-size: 1.5rem; }
+
   /* ── MOBILE ── */
   @media (max-width: 768px) {
     .hero-visual { height: 260px; }
@@ -374,3 +616,86 @@ const project = {
     .nav-next { border-left: none; border-top: 1px solid var(--border); text-align: left; align-items: flex-start; }
   }
 </style>
+
+<script>
+  const lightbox = document.getElementById('lightbox')!;
+  const lbImg = document.getElementById('lb-img') as HTMLImageElement;
+  const lbCaption = document.getElementById('lb-caption')!;
+
+  let activeItems: Element[] = [];
+  let current = 0;
+
+  function open(items: Element[], index: number) {
+    activeItems = items;
+    current = index;
+    const item = items[index] as HTMLElement;
+    const img = item.querySelector('img') as HTMLImageElement;
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lbCaption.textContent = '';
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function prev() { open(activeItems, (current - 1 + activeItems.length) % activeItems.length); }
+  function next() { open(activeItems, (current + 1) % activeItems.length); }
+
+  const photoGrid = document.querySelector('.photo-grid');
+  if (photoGrid) {
+    const photoItems = Array.from(photoGrid.querySelectorAll('.photo-item'));
+    photoItems.forEach((item, i) => {
+      item.addEventListener('click', () => open(photoItems, i));
+    });
+  }
+
+  const scrollStrip = document.querySelector('.scroll-strip');
+  if (scrollStrip) {
+    const scrollItems = Array.from(scrollStrip.querySelectorAll('.scroll-item'));
+
+    // drag-to-scroll
+    let isDown = false, startX = 0, scrollLeft = 0, moved = false;
+    scrollStrip.addEventListener('mousedown', (e) => {
+      isDown = true; moved = false;
+      startX = (e as MouseEvent).pageX - (scrollStrip as HTMLElement).offsetLeft;
+      scrollLeft = scrollStrip.scrollLeft;
+    });
+    scrollStrip.addEventListener('mouseleave', () => { isDown = false; });
+    scrollStrip.addEventListener('mouseup', () => { isDown = false; });
+    scrollStrip.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      moved = true;
+      const x = (e as MouseEvent).pageX - (scrollStrip as HTMLElement).offsetLeft;
+      scrollStrip.scrollLeft = scrollLeft - (x - startX);
+    });
+    scrollStrip.addEventListener('click', (e) => {
+      if (moved) e.stopImmediatePropagation();
+    }, true);
+
+    scrollItems.forEach((item, i) => {
+      item.addEventListener('click', () => open(scrollItems, i));
+    });
+  }
+
+  document.getElementById('lb-close')!.addEventListener('click', close);
+  document.getElementById('lb-prev')!.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
+  document.getElementById('lb-next')!.addEventListener('click', (e) => { e.stopPropagation(); next(); });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) close();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+</script>
