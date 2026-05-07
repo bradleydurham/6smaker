@@ -129,6 +129,8 @@ const projectTypes = [
     display: grid;
     grid-template-columns: 1fr 1.1fr;
     min-height: calc(100svh - var(--nav-h));
+    max-width: 1200px;
+    margin-inline: auto;
   }
 
   /* ── INFO PANEL ── */
@@ -230,6 +232,18 @@ const projectTypes = [
     padding-left: 4rem;
     background: var(--surface);
     overflow-y: auto;
+    position: relative;
+  }
+
+  .contact-form-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: max(0px, calc((100vw - 1200px) / 2));
+    height: 100%;
+    background: var(--surface);
+    pointer-events: none;
   }
 
   .contact-form {
