@@ -17,7 +17,7 @@ const project = {
 
   <!-- HERO -->
   <section class="project-hero">
-    <div class="hero-visual" style={`background: linear-gradient(135deg, ${project.c1}, ${project.c2})`}>
+    <div class="hero-visual" style="background-image: url('/images/Leadbetter-Header.jpg'); background-size: cover; background-position: center;">
       <span class="hero-num">{project.num}</span>
     </div>
     <div class="container">
@@ -55,8 +55,7 @@ const project = {
         </div>
         <div class="overview-body">
           <p class="overview-large">
-            Project overview goes here. Describe the challenge, the client's goals,
-            and the context that shaped the work.
+            “The golf swing is very, very rhythmic. There’s a certain tempo to it, just like in music.” – Justin Timberlake
           </p>
           <p>
             Additional detail about the project approach, process, and what made
@@ -68,49 +67,70 @@ const project = {
     </div>
   </section>
 
-  <!-- PLACEHOLDER CONTENT BLOCKS -->
+  <!-- THE WORK -->
   <section class="section section--dark reveal">
     <div class="container">
       <span class="label">The Work</span>
-      <div class="work-blocks">
-        <div class="work-block">
-          <div class="block-visual" style={`background: linear-gradient(135deg, ${project.c1}, ${project.c2})`}></div>
-          <p class="block-caption">Caption describing this piece of work or deliverable.</p>
-        </div>
-        <div class="work-block">
-          <div class="block-visual" style={`background: linear-gradient(160deg, ${project.c2}, ${project.c1})`}></div>
-          <p class="block-caption">Caption describing this piece of work or deliverable.</p>
-        </div>
+      <div class="work-video-wrap">
+        <video src="/images/Leadbetter.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="work-text">
+        <h2 class="work-headline">Change It Up to Keep It Interesting</h2>
+        <p class="work-copy">Three ways we can enhance the watchability of your tutorial.</p>
       </div>
     </div>
   </section>
 
+  <!-- THREE TECHNIQUES -->
   <section class="section reveal">
     <div class="container">
-      <div class="full-visual" style={`background: linear-gradient(135deg, ${project.c1} 0%, ${project.c2} 100%)`}></div>
-      <p class="block-caption full-caption">Full-width visual or description of a key deliverable.</p>
-    </div>
-  </section>
-
-  <!-- RESULTS -->
-  <section class="section reveal">
-    <div class="container">
-      <div class="results-grid">
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
+      <div class="techniques-grid">
+        <div class="technique">
+          <button class="technique-video" data-video="ps2Z1YvbE5s" aria-label="Play Change Perspective">
+            <img src="https://img.youtube.com/vi/ps2Z1YvbE5s/maxresdefault.jpg" alt="Change Perspective" loading="lazy" />
+            <span class="play-btn" aria-hidden="true"></span>
+          </button>
+          <div class="technique-text">
+            <h3 class="technique-headline">Change Perspective <span class="duration">2:37</span></h3>
+            <p class="technique-copy">Jump cuts and other types of transitions between camera positions can change point of view & add interest.</p>
+          </div>
         </div>
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
+        <div class="technique">
+          <button class="technique-video" data-video="XVDNMrLQx78" aria-label="Play Motion Graphics">
+            <img src="https://img.youtube.com/vi/XVDNMrLQx78/maxresdefault.jpg" alt="Motion Graphics" loading="lazy" />
+            <span class="play-btn" aria-hidden="true"></span>
+          </button>
+          <div class="technique-text">
+            <h3 class="technique-headline">Motion Graphics <span class="duration">1:45</span></h3>
+            <p class="technique-copy">Sometimes a picture is worth a thousand words. Motion graphics can make your point more clear.</p>
+          </div>
         </div>
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
+        <div class="technique">
+          <button class="technique-video" data-video="teTwAHlMpDs" aria-label="Play Close-ups">
+            <img src="https://img.youtube.com/vi/teTwAHlMpDs/maxresdefault.jpg" alt="Close-ups" loading="lazy" />
+            <span class="play-btn" aria-hidden="true"></span>
+          </button>
+          <div class="technique-text">
+            <h3 class="technique-headline">Close-ups <span class="duration">2:03</span></h3>
+            <p class="technique-copy">As with motion graphics, a close up view to give the viewer a better understanding of what you are talking about can be invaluable.</p>
+          </div>
         </div>
+      </div>
+      <div class="playlist-wrap">
+        <a href="https://www.youtube.com/playlist?list=PLg_WOJ70kKXnS_dXKphR_yc4ZsaxZAKZY" target="_blank" rel="noopener noreferrer" class="playlist-btn">View Full Playlist</a>
       </div>
     </div>
   </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog" aria-label="Video player">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close video">&#x2715;</button>
+    <div class="lightbox-inner">
+      <div class="lightbox-video">
+        <iframe id="lightbox-iframe" src="" title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
 
   <!-- NAV: PREV / NEXT -->
   <nav class="project-nav reveal">
@@ -251,17 +271,209 @@ const project = {
     font-size: 1.05rem;
   }
 
-  .work-blocks {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
+  .work-video-wrap {
     margin-top: 2.5rem;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .block-visual { height: 320px; }
+  .work-video-wrap video {
+    width: 100%;
+    display: block;
+  }
+
+  .work-text {
+    max-width: 1200px;
+    margin: 2.5rem auto 0;
+    text-align: center;
+  }
+
+  .work-headline {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .work-copy {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  .techniques-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .technique-video {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--surface);
+    width: 100%;
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    display: block;
+  }
+
+  .technique-video img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .technique-video:hover img { transform: scale(1.04); }
+
+  .play-btn {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.55);
+    border: 2px solid rgba(255,255,255,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+    pointer-events: none;
+  }
+
+  .play-btn::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 9px 0 9px 18px;
+    border-color: transparent transparent transparent #fff;
+    margin-left: 4px;
+  }
+
+  .technique-video:hover .play-btn {
+    background: rgba(0,0,0,0.8);
+    transform: scale(1.1);
+  }
+
+  /* LIGHTBOX */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .lightbox.is-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.6);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .lightbox-close:hover { color: #fff; }
+
+  .lightbox-inner {
+    width: min(90vw, 1100px);
+  }
+
+  .lightbox-video {
+    position: relative;
+    aspect-ratio: 16 / 9;
+  }
+
+  .lightbox-video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .technique-text {
+    padding-top: 1.25rem;
+  }
+
+  .technique-headline {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6em;
+  }
+
+  .duration {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.15);
+    font-weight: 400;
+  }
+
+  .technique-copy {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  .playlist-wrap {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .playlist-btn {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text);
+    border: 1px solid var(--text-muted);
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+
+  .playlist-btn:hover {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+  }
+
+  @media (max-width: 900px) {
+    .techniques-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
 
   .block-caption,
   .full-caption {
@@ -352,3 +564,35 @@ const project = {
     .nav-next { border-left: none; border-top: 1px solid var(--border); text-align: left; align-items: flex-start; }
   }
 </style>
+
+<script>
+  const lightbox = document.getElementById('lightbox')!;
+  const iframe = document.getElementById('lightbox-iframe') as HTMLIFrameElement;
+  const closeBtn = document.getElementById('lightbox-close')!;
+
+  function openLightbox(videoId: string) {
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    iframe.src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('.technique-video[data-video]').forEach(btn => {
+    btn.addEventListener('click', () => openLightbox(btn.dataset.video!));
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
