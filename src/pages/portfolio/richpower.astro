@@ -47,74 +47,72 @@ const project = {
           <dl class="project-details">
             <div class="detail-row">
               <dt>Client</dt>
-              <dd>RICHPOWER Industries</dd>
+              <dd>RICHPOWER Industries, Genesis Power Tools, Powersmith Products</dd>
             </div>
             <div class="detail-row">
               <dt>Services</dt>
               <dd>{project.tags.join(', ')}</dd>
             </div>
+            <div class="detail-row">
+              <dt>Deliverables</dt>
+              <dd>Website Design, Website Development, Multiple Websites</dd>
+            </div>
           </dl>
         </div>
         <div class="overview-body">
           <p class="overview-large">
-            Project overview goes here. Describe the challenge, the client's goals,
-            and the context that shaped the work.
+            “Man is a tool-using animal. Without tools he is nothing, with tools he is all.” – Thomas Carlyle
           </p>
           <p>
-            Additional detail about the project approach, process, and what made
-            this engagement unique. This is a good place to talk about research,
-            strategy, or any constraints that informed the creative direction.
+            RICHPOWER Industries called on us to put our tools to work for their tools. So we mustered our web designers and programmers and produced three separate websites for Richpower’s power tool brands. We balanced their objectives, timeline, budget and distinct brand identities to meet their launch needs and continue to manage maintenance and updates for these consumer targeted websites.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PLACEHOLDER CONTENT BLOCKS -->
-  <section class="section section--dark reveal">
+  <!-- WORK SECTIONS -->
+  <div class="work-label-row">
     <div class="container">
       <span class="label">The Work</span>
-      <div class="work-blocks">
-        <div class="work-block">
-          <div class="block-visual" style={`background: linear-gradient(135deg, ${project.c1}, ${project.c2})`}></div>
-          <p class="block-caption">Caption describing this piece of work or deliverable.</p>
-        </div>
-        <div class="work-block">
-          <div class="block-visual" style={`background: linear-gradient(160deg, ${project.c2}, ${project.c1})`}></div>
-          <p class="block-caption">Caption describing this piece of work or deliverable.</p>
-        </div>
-      </div>
+    </div>
+  </div>
+
+  <section class="work-feature reveal">
+    <div class="work-feature__text">
+      <h2 class="work-feature__headline">Richpower Corporate Website</h2>
+      <p class="work-feature__copy">The team at Richpower approached us to design & build three websites for their lineup of brands. The initial site was for their parent company. It is mainly a brochure site with links to their library of downloadable content for retail partners.</p>
+      <a href="https://richpowerinc.com/" target="_blank" rel="noopener" class="work-feature__btn">View Site</a>
+    </div>
+    <div class="work-feature__img">
+      <img src="/images/richpower/1-richpower-mockup.jpg" alt="Richpower Corporate Website" loading="lazy" />
     </div>
   </section>
 
-  <section class="section reveal">
-    <div class="container">
-      <div class="full-visual" style={`background: linear-gradient(135deg, ${project.c1} 0%, ${project.c2} 100%)`}></div>
-      <p class="block-caption full-caption">Full-width visual or description of a key deliverable.</p>
+  <section class="work-feature work-feature--flip reveal">
+    <div class="work-feature__img">
+      <img src="/images/richpower/2-Genesis-mockup.jpg" alt="Genesis Website" loading="lazy" />
+    </div>
+    <div class="work-feature__text">
+      <h2 class="work-feature__headline">Genesis Website</h2>
+      <p class="work-feature__copy">For the Genesis & Powersmith sites they were looking for a template of sorts so that both sites would look similar. After a handful of revisions, we found the layout that worked best and started building.</p>
+      <a href="https://genesispowertools.com/" target="_blank" rel="noopener" class="work-feature__btn">View Site</a>
     </div>
   </section>
 
-  <!-- RESULTS -->
-  <section class="section reveal">
-    <div class="container">
-      <div class="results-grid">
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
-        </div>
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
-        </div>
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
-        </div>
-      </div>
+  <section class="work-feature reveal">
+    <div class="work-feature__text">
+      <h2 class="work-feature__headline">Powersmith Website</h2>
+      <p class="work-feature__copy">Both the Powersmith & Genesis sites featured a searchable retail location map. This was a big undertaking for our team, but as usual we pulled it off in style!</p>
+      <a href="https://powersmithproducts.com/" target="_blank" rel="noopener" class="work-feature__btn">View Site</a>
+    </div>
+    <div class="work-feature__img">
+      <img src="/images/richpower/3-Powersmith-mockup.jpg" alt="Powersmith Website" loading="lazy" />
     </div>
   </section>
 
-  <!-- NAV: PREV / NEXT -->
+
+<!-- NAV: PREV / NEXT -->
   <nav class="project-nav reveal">
     <a href="/portfolio/smartcast-media/" class="nav-item nav-prev">
       <span class="label">Previous</span>
@@ -263,69 +261,93 @@ const project = {
     font-size: 1.05rem;
   }
 
-  .work-blocks {
+  .work-label-row {
+    padding: 3rem var(--px) 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .work-feature {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    margin-top: 2.5rem;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    min-height: 560px;
+    border-top: 1px solid var(--border);
   }
 
-  .block-visual { height: 320px; }
-
-  .block-caption,
-  .full-caption {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--text-muted);
-    margin-top: 1rem;
+  .work-label-row + .work-feature {
+    border-top: none;
   }
 
-  .full-visual {
-    height: 480px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .full-caption { text-align: center; }
-
-  .results-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .result-item {
-    background: var(--surface);
-    padding: 3rem 2.5rem;
+  .work-feature__text {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    justify-content: center;
+    padding: 5rem var(--px);
+    gap: 1.5rem;
   }
 
-  .result-num {
+  .work-feature__text .label { display: block; }
+
+  .work-feature__headline {
     font-family: var(--font-display);
-    font-size: 3.5rem;
-    letter-spacing: 0.04em;
-    line-height: 1;
-    color: var(--accent);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    letter-spacing: 0.02em;
+    line-height: 1.05;
   }
 
-  .result-label {
+  .work-feature__copy {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 46ch;
+  }
+
+  .work-feature__btn {
+    display: inline-block;
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    color: var(--text-muted);
+    color: var(--text);
+    border: 1px solid var(--text);
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    align-self: flex-start;
+    transition: background 0.2s, color 0.2s;
   }
 
-  .project-nav {
+  .work-feature__btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #000;
+  }
+
+  .work-feature__img {
+    overflow: hidden;
+  }
+
+  .work-feature__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Image on right: text first, img extends to right edge */
+  .work-feature:not(.work-feature--flip) {
+    padding-left: var(--px);
+    padding-left: 0;
+  }
+
+  .work-feature:not(.work-feature--flip) .work-feature__text {
+    padding-left: var(--px);
+  }
+
+  /* Image on left: img extends to left edge */
+  .work-feature--flip .work-feature__text {
+    padding-right: var(--px);
+  }
+
+.project-nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     border-top: 1px solid var(--border);
@@ -358,9 +380,20 @@ const project = {
     .hero-visual { height: 260px; }
     .overview-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .overview-aside { position: static; }
-    .work-blocks { grid-template-columns: 1fr; }
-    .results-grid { grid-template-columns: 1fr; }
-    .project-nav { grid-template-columns: 1fr; }
+    .work-feature {
+      grid-template-columns: 1fr;
+      min-height: unset;
+    }
+    .work-feature--flip {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    .work-feature__img { height: 280px; }
+    .work-feature__text,
+    .work-feature--flip .work-feature__text {
+      padding: 3rem var(--px);
+    }
+.project-nav { grid-template-columns: 1fr; }
     .nav-next { border-left: none; border-top: 1px solid var(--border); text-align: left; align-items: flex-start; }
   }
 </style>
