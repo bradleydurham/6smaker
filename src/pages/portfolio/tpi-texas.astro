@@ -1,5 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Gem from '@lucide/astro/icons/gem';
+import Smartphone from '@lucide/astro/icons/smartphone';
+import ChartNoAxesCombined from '@lucide/astro/icons/chart-no-axes-combined';
 
 const project = {
   num: '08',
@@ -8,8 +11,15 @@ const project = {
   tags: ['Web', 'Branding', 'Print'],
   year: '2023',
   desc: 'A year-long brand transformation for TPI resulted in a meticulously crafted new logo and website that reflects the same artisan quality the metalworking company puts into their own products.',
-  c1: '#1a2a1a',
-  c2: '#0f190f',
+  c1: '#003da5',
+  c2: '#002b75',
+  colors: [
+    { hex: '#003da5', name: 'TPI Blue',    detail: 'Pantone 293C' },
+    { hex: '#71c5e8', name: 'TPI Sky',    detail: 'Pantone 297C' },
+    { hex: '#bbbcbc', name: 'Light Gray', detail: 'Pantone Cool Gray 4C' },
+    { hex: '#97999b', name: 'Medium Gray',detail: 'Pantone Cool Gray 7C' },
+    { hex: '#63666a', name: 'Charcoal',   detail: 'Pantone Cool Gray 10C' },
+  ],
 };
 ---
 
@@ -17,7 +27,8 @@ const project = {
 
   <!-- HERO -->
   <section class="project-hero">
-    <div class="hero-visual" style={`background: linear-gradient(135deg, ${project.c1}, ${project.c2})`}>
+    <div class="hero-visual">
+      <img src="/images/CNC.jpg" alt="CNC metalworking" class="hero-img" loading="eager" />
       <span class="hero-num">{project.num}</span>
     </div>
     <div class="container">
@@ -55,59 +66,108 @@ const project = {
         </div>
         <div class="overview-body">
           <p class="overview-large">
-            Project overview goes here. Describe the challenge, the client's goals,
-            and the context that shaped the work.
+            “He who works with his hands and his head is a craftsman.” – Francis of Assisi
           </p>
           <p>
-            Additional detail about the project approach, process, and what made
-            this engagement unique. This is a good place to talk about research,
-            strategy, or any constraints that informed the creative direction.
+            The craftsmen at TPI approached us to rebuild their brand and website with the same care and attention to detail they put into all their own work. Over the course of a year, we meticulously worked to transform their brand into the masterpiece it is today. Starting with their logo and finalizing with their website, their brand is something they can be as proud of as any piece of metal they mould into a usable work of art.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PLACEHOLDER CONTENT BLOCKS -->
-  <section class="section section--dark reveal">
+  <!-- BRAND COLORS -->
+  <section class="section reveal">
     <div class="container">
-      <span class="label">The Work</span>
-      <div class="work-blocks">
-        <div class="work-block">
-          <div class="block-visual" style={`background: linear-gradient(135deg, ${project.c1}, ${project.c2})`}></div>
-          <p class="block-caption">Caption describing this piece of work or deliverable.</p>
+      <span class="label">Brand Colors</span>
+      <div class="palette-group">
+        <span class="swatch-role">Primary</span>
+        <div class="color-palette color-palette--primary">
+          {project.colors.slice(0, 2).map(c => (
+            <div class="color-swatch swatch--main">
+              <div class="swatch-block" style={`background: ${c.hex}`}></div>
+              <span class="swatch-name">{c.name}</span>
+              <span class="swatch-detail">{c.detail}</span>
+            </div>
+          ))}
         </div>
-        <div class="work-block">
-          <div class="block-visual" style={`background: linear-gradient(160deg, ${project.c2}, ${project.c1})`}></div>
-          <p class="block-caption">Caption describing this piece of work or deliverable.</p>
+      </div>
+      <div class="palette-group">
+        <span class="swatch-role">Accent</span>
+        <div class="color-palette color-palette--accent">
+          {project.colors.slice(2).map(c => (
+            <div class="color-swatch">
+              <div class="swatch-block" style={`background: ${c.hex}`}></div>
+              <span class="swatch-name">{c.name}</span>
+              <span class="swatch-detail">{c.detail}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section reveal">
+  <!-- TYPOGRAPHY -->
+  <section class="section section--dark reveal">
     <div class="container">
-      <div class="full-visual" style={`background: linear-gradient(135deg, ${project.c1} 0%, ${project.c2} 100%)`}></div>
-      <p class="block-caption full-caption">Full-width visual or description of a key deliverable.</p>
+      <span class="label">Typography</span>
+      <div class="type-grid">
+        <div class="type-item">
+          <p class="type-sample type-gin gin">Aa</p>
+          <div class="type-alphabet type-gin gin">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
+          <div class="type-meta">
+            <span class="type-name">Gin</span>
+            <span class="type-class">Display Serif</span>
+          </div>
+          <p class="type-specimen type-gin gin">TPI Texas delivers precision metalwork with the artisan quality your project demands.</p>
+        </div>
+        <div class="type-item">
+          <p class="type-sample type-helv">Aa</p>
+          <div class="type-alphabet type-helv">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
+          <div class="type-meta">
+            <span class="type-name">Helvetica Neue</span>
+            <span class="type-class">Sans-Serif</span>
+          </div>
+          <p class="type-specimen type-helv">TPI Texas delivers precision metalwork with the artisan quality your project demands.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- RESULTS -->
-  <section class="section reveal">
-    <div class="container">
-      <div class="results-grid">
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
+  <!-- ICON + IMAGE SPLIT -->
+  <section class="section icon-split">
+    <div class="icon-split-inner">
+      <div class="icon-split-text">
+        <div class="icon-row from-right" style="--slide-delay: 0s">
+          <div class="icon-wrap icon-wrap--light">
+            <Gem size={40} stroke-width={1.5} />
+          </div>
+          <div class="icon-text">
+            <h4 class="icon-heading">Beautiful Design</h4>
+            <p class="icon-body">TPI's site was recreated from scratch with a beautiful new design that fit their new branding.</p>
+          </div>
         </div>
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
+        <div class="icon-row from-right" style="--slide-delay: 0.18s">
+          <div class="icon-wrap icon-wrap--light">
+            <Smartphone size={40} stroke-width={1.5} />
+          </div>
+          <div class="icon-text">
+            <h4 class="icon-heading">Responsive and Mobile Ready</h4>
+            <p class="icon-body">The new site was built with mobile devices in mind. It conforms to screens of any size or shape.</p>
+          </div>
         </div>
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
+        <div class="icon-row from-right" style="--slide-delay: 0.36s">
+          <div class="icon-wrap icon-wrap--light">
+            <ChartNoAxesCombined size={40} stroke-width={1.5} />
+          </div>
+          <div class="icon-text">
+            <h4 class="icon-heading">Increased Sales</h4>
+            <p class="icon-body">eCommerce was important for TPI to increase their bottom line. Instead of only taking phone orders, customers can now order any of their product line online at any time.</p>
+          </div>
         </div>
+      </div>
+      <div class="icon-split-image from-right" style="--slide-delay: 0.1s">
+        <img src="/images/TPI-laptop.jpg" alt="TPI Texas website on laptop" class="icon-image-block" loading="lazy" />
       </div>
     </div>
   </section>
@@ -126,12 +186,33 @@ const project = {
 
 </Layout>
 
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.from-right').forEach(el => observer.observe(el));
+</script>
+
 <style>
   .project-hero { padding-top: var(--nav-h); }
 
   .hero-visual {
     height: 420px;
     position: relative;
+    overflow: hidden;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .hero-num {
@@ -342,10 +423,208 @@ const project = {
     color: var(--text);
   }
 
+  /* ── BRAND COLORS ── */
+  .color-palette {
+    display: grid;
+    gap: 2px;
+  }
+
+  .palette-group {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2.5rem;
+  }
+
+  .palette-group + .palette-group { margin-top: 2.5rem; }
+
+  .palette-group > .swatch-role {
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .color-palette--primary { grid-template-columns: repeat(2, 1fr); }
+
+  .color-palette--accent  { grid-template-columns: repeat(3, 1fr); }
+
+  .color-swatch { display: flex; flex-direction: column; }
+
+  .swatch-block { height: 160px; }
+
+  .swatch--main .swatch-block { height: 200px; }
+
+  .swatch-name {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    margin-top: 0.9rem;
+  }
+
+  .swatch-detail {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+  }
+
+  .swatch-role {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin-top: 0.4rem;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .gin       { font-family: 'gin', Georgia, serif; }
+  .type-gin  { font-family: Georgia, serif; }
+  .type-helv { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 2.5rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .type-item {
+    background: var(--bg);
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .type-sample {
+    font-size: clamp(5rem, 10vw, 9rem);
+    line-height: 1;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .type-alphabet {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .type-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .type-name {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+  }
+
+  .type-class {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+  }
+
+  .type-specimen {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  /* ── ICON + IMAGE SPLIT ── */
+  .icon-split { padding: 0; border-top: 1px solid var(--border); overflow: hidden; }
+
+  .from-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+    transition-delay: var(--slide-delay, 0s);
+  }
+  .from-right.in-view { opacity: 1; transform: translateX(0); }
+
+  .icon-split-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .icon-split-text {
+    padding: 6rem var(--px) 6rem calc((100vw - 1200px) / 2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+    max-width: calc(600px + (100vw - 1200px) / 2);
+  }
+
+  .icon-row {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .icon-wrap {
+    width: 40px;
+    height: 40px;
+    color: #003da5;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+  }
+
+  .icon-wrap--light { color: #71c5e8; }
+
+  .icon-wrap svg { width: 100%; height: 100%; }
+
+  .icon-heading {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.5rem;
+  }
+
+  .icon-body {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .icon-split-image {
+    position: relative;
+  }
+
+  .icon-image-block {
+    width: 100%;
+    height: 100%;
+    min-height: 520px;
+    object-fit: cover;
+    display: block;
+  }
+
   @media (max-width: 768px) {
     .hero-visual { height: 260px; }
     .overview-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .overview-aside { position: static; }
+    .color-palette--primary { grid-template-columns: repeat(2, 1fr); }
+    .color-palette--accent  { grid-template-columns: repeat(3, 1fr); }
+    .type-grid { grid-template-columns: 1fr; }
+    .icon-split-inner { grid-template-columns: 1fr; }
+    .icon-split-text { padding: 4rem var(--px); max-width: 100%; }
+    .icon-split-image { display: none; }
+    .icon-image-block { min-height: 320px; }
     .work-blocks { grid-template-columns: 1fr; }
     .results-grid { grid-template-columns: 1fr; }
     .project-nav { grid-template-columns: 1fr; }
