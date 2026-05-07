@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { FingerprintPattern, Palette, Cat, Flame } from '@lucide/astro';
 
 const project = {
   num: '03',
@@ -17,7 +18,10 @@ const project = {
 
   <!-- HERO -->
   <section class="project-hero">
-    <div class="hero-visual" style={`background: linear-gradient(135deg, ${project.c1}, ${project.c2})`}>
+    <div class="hero-visual">
+      <video autoplay muted loop playsinline>
+        <source src="/images/litter-pearls/v4_litter_pearls.mp4" type="video/mp4" />
+      </video>
       <span class="hero-num">{project.num}</span>
     </div>
     <div class="container">
@@ -55,13 +59,10 @@ const project = {
         </div>
         <div class="overview-body">
           <p class="overview-large">
-            Project overview goes here. Describe the challenge, the client's goals,
-            and the context that shaped the work.
+            “The way to my heart is covered with paw prints.” – Barbara L. Diamond
           </p>
           <p>
-            Additional detail about the project approach, process, and what made
-            this engagement unique. This is a good place to talk about research,
-            strategy, or any constraints that informed the creative direction.
+            Litter Pearls needed new branding to reintroduce their product line that keeps cats’ paws comfortable and litter particles in the box. We modernized their visual brand language with a fresh, new logo and color palette and created an upscale packaging design that even the most discerning cat purrr-sons appreciate. To top things off, we supported their digital marketing efforts at global virtual pet shows with product videos, showroom graphics and social media content.
           </p>
         </div>
       </div>
@@ -85,29 +86,325 @@ const project = {
     </div>
   </section>
 
-  <section class="section reveal">
+  <!-- 3-COLUMN FEATURE -->
+  <section class="section section--lighter reveal">
     <div class="container">
-      <div class="full-visual" style={`background: linear-gradient(135deg, ${project.c1} 0%, ${project.c2} 100%)`}></div>
-      <p class="block-caption full-caption">Full-width visual or description of a key deliverable.</p>
+      <div class="feature-grid">
+
+        <!-- Left column -->
+        <div class="feature-col feature-col--side">
+          <div class="feature-item">
+            <div class="feature-icon"><FingerprintPattern size={28} /></div>
+            <h3 class="feature-headline">New Logo Mark</h3>
+            <p class="feature-copy">The new logo brings the brand into a contemporary new world both through form and color usage.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><Palette size={28} /></div>
+            <h3 class="feature-headline">New Colors</h3>
+            <p class="feature-copy">To go along with the new mark, a new array of colors was introduced to help define each product in their line-up.</p>
+          </div>
+        </div>
+
+        <!-- Center image -->
+        <div class="feature-col feature-col--center">
+          <img src="/images/litter-pearls/litter-pearls-cat.svg" alt="Litter Pearls cat illustration" class="feature-image" />
+        </div>
+
+        <!-- Right column -->
+        <div class="feature-col feature-col--side">
+          <div class="feature-item">
+            <div class="feature-icon"><Cat size={28} /></div>
+            <h3 class="feature-headline">The Star</h3>
+            <p class="feature-copy">Of course we highlighted the star of the brand... cats! A silhouetted cat's head is featured as the pearl of the mark.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><Flame size={28} /></div>
+            <h3 class="feature-headline">Abstraction</h3>
+            <p class="feature-copy">The swirl pattern was introduced as a way to give movement to a static logo. The added benefit is using an oyster shell shaped form reinforces the brand's name: Litter Pearls.</p>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
-  <!-- RESULTS -->
+  <!-- 5-COLUMN LOGOS -->
+  <section class="section section--lighter reveal">
+    <div class="container">
+      <div class="logo-grid">
+        <button class="logo-col" data-src="/images/litter-pearls/logo/LP-Crystal-Clear.svg" data-alt="LP Crystal Clear">
+          <img src="/images/litter-pearls/logo/LP-Crystal-Clear.svg" alt="LP Crystal Clear" />
+        </button>
+        <button class="logo-col" data-src="/images/litter-pearls/logo/LP-Micro-Fresh.svg" data-alt="LP Micro Fresh">
+          <img src="/images/litter-pearls/logo/LP-Micro-Fresh.svg" alt="LP Micro Fresh" />
+        </button>
+        <button class="logo-col" data-src="/images/litter-pearls/logo/LP-Micro.svg" data-alt="LP Micro">
+          <img src="/images/litter-pearls/logo/LP-Micro.svg" alt="LP Micro" />
+        </button>
+        <button class="logo-col" data-src="/images/litter-pearls/logo/LP-Tracksless.svg" data-alt="LP Tracksless">
+          <img src="/images/litter-pearls/logo/LP-Tracksless.svg" alt="LP Tracksless" />
+        </button>
+        <button class="logo-col" data-src="/images/litter-pearls/logo/LP-Ultra-Clump.svg" data-alt="LP Ultra Clump">
+          <img src="/images/litter-pearls/logo/LP-Ultra-Clump.svg" alt="LP Ultra Clump" />
+        </button>
+      </div>
+    </div>
+  </section>
+
   <section class="section reveal">
     <div class="container">
-      <div class="results-grid">
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
+      <div class="full-visual">
+        <img src="/images/litter-pearls/Litter-Pearls.png" alt="Litter Pearls package design" />
+      </div>
+      <h2 class="full-headline">Package Design</h2>
+    </div>
+  </section>
+
+  <!-- INFORMATIONAL VIDEOS -->
+  <section class="section section--dark reveal">
+    <div class="container">
+      <span class="label">Video Production</span>
+      <h2 class="videos-headline">Informational Videos</h2>
+      <div class="video-row">
+        <button class="video-thumb" data-video="dmqDltwXxUA" aria-label="Play video">
+          <img src="https://img.youtube.com/vi/dmqDltwXxUA/maxresdefault.jpg" alt="Litter Pearls product video" />
+          <span class="play-btn" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 3l14 7-14 7V3z" fill="currentColor"/>
+            </svg>
+          </span>
+        </button>
+        <div class="video-text">
+          <h3 class="video-text-headline">There's a reason cat videos are so popular.</h3>
+          <p class="video-text-copy">Cats are unpredictable! We loved having Sophia, Heathrow and Phasma in studio for product and instructional video shoots.</p>
         </div>
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
+      </div>
+
+      <div class="video-grid">
+        <button class="video-thumb" data-video="VxhgoegFnBg" aria-label="Play video">
+          <img src="https://img.youtube.com/vi/VxhgoegFnBg/hqdefault.jpg" alt="Litter Pearls video" />
+          <span class="play-btn" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 3l14 7-14 7V3z" fill="currentColor"/></svg>
+          </span>
+        </button>
+        <button class="video-thumb" data-video="f_VUc33jGd8" aria-label="Play video">
+          <img src="https://img.youtube.com/vi/f_VUc33jGd8/hqdefault.jpg" alt="Litter Pearls video" />
+          <span class="play-btn" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 3l14 7-14 7V3z" fill="currentColor"/></svg>
+          </span>
+        </button>
+        <button class="video-thumb" data-video="IRM1NUK20i8" aria-label="Play video">
+          <img src="https://img.youtube.com/vi/IRM1NUK20i8/hqdefault.jpg" alt="Litter Pearls video" />
+          <span class="play-btn" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 3l14 7-14 7V3z" fill="currentColor"/></svg>
+          </span>
+        </button>
+        <button class="video-thumb" data-video="DtZa2oVuhE4" aria-label="Play video">
+          <img src="https://img.youtube.com/vi/DtZa2oVuhE4/hqdefault.jpg" alt="Litter Pearls video" />
+          <span class="play-btn" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 3l14 7-14 7V3z" fill="currentColor"/></svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOR SECTIONS -->
+  <section class="section reveal">
+    <div class="container">
+      <h2 class="colors-headline">Crystal Clear Colors</h2>
+      <div class="color-grid">
+        <div class="color-item">
+          <div class="color-swatch" style="background: #1a5532;"></div>
+          <div class="color-meta">
+            <span class="color-name">Hunter</span>
+            <span class="color-descriptor">Pantone 357C</span>
+            <span class="color-hex">#1a5532</span>
+          </div>
         </div>
-        <div class="result-item">
-          <span class="result-num">—</span>
-          <span class="result-label">Result or metric</span>
+        <div class="color-item">
+          <div class="color-swatch" style="background: #03ae4b;"></div>
+          <div class="color-meta">
+            <span class="color-name">Green</span>
+            <span class="color-descriptor">Pantone 354C</span>
+            <span class="color-hex">#03ae4b</span>
+          </div>
         </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: #84caa1;"></div>
+          <div class="color-meta">
+            <span class="color-name">Mint</span>
+            <span class="color-descriptor">Pantone 353C</span>
+            <span class="color-hex">#84caa1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container">
+      <h2 class="colors-headline">Micro Fresh Colors</h2>
+      <div class="color-grid">
+        <div class="color-item">
+          <div class="color-swatch" style="background: #05665e;"></div>
+          <div class="color-meta">
+            <span class="color-name">Ocean</span>
+            <span class="color-descriptor">Pantone 329C</span>
+            <span class="color-hex">#05665e</span>
+          </div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: #008275;"></div>
+          <div class="color-meta">
+            <span class="color-name">Teal</span>
+            <span class="color-descriptor">Pantone 327C</span>
+            <span class="color-hex">#008275</span>
+          </div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: #07aea9;"></div>
+          <div class="color-meta">
+            <span class="color-name">Sapphire</span>
+            <span class="color-descriptor">Pantone 326C</span>
+            <span class="color-hex">#07aea9</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container">
+      <h2 class="colors-headline">Micro Colors</h2>
+      <div class="color-grid">
+        <div class="color-item">
+          <div class="color-swatch" style="background: #75246c;"></div>
+          <div class="color-meta">
+            <span class="color-name">Plum</span>
+            <span class="color-descriptor">Pantone 255C</span>
+            <span class="color-hex">#75246c</span>
+          </div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: #a6228b;"></div>
+          <div class="color-meta">
+            <span class="color-name">Magenta</span>
+            <span class="color-descriptor">Pantone 248C</span>
+            <span class="color-hex">#a6228b</span>
+          </div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: #db85b7;"></div>
+          <div class="color-meta">
+            <span class="color-name">Rose</span>
+            <span class="color-descriptor">Pantone 673C</span>
+            <span class="color-hex">#db85b7</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container">
+      <h2 class="colors-headline">Tracksless Colors</h2>
+      <div class="color-grid">
+        <div class="color-item">
+          <div class="color-swatch" style="background: #252C72;"></div>
+          <div class="color-meta">
+            <span class="color-name">Navy</span>
+            <span class="color-descriptor">Pantone 662C</span>
+            <span class="color-hex">#252C72</span>
+          </div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: #427bbf;"></div>
+          <div class="color-meta">
+            <span class="color-name">Blue</span>
+            <span class="color-descriptor">Pantone 660C</span>
+            <span class="color-hex">#427bbf</span>
+          </div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: #79a1d5;"></div>
+          <div class="color-meta">
+            <span class="color-name">Sky</span>
+            <span class="color-descriptor">Pantone 659C</span>
+            <span class="color-hex">#79a1d5</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container">
+      <h2 class="colors-headline">Ultra Clump Colors</h2>
+      <div class="color-grid">
+        <div class="color-item">
+          <div class="color-swatch" style="background: #25216d;"></div>
+          <div class="color-meta">
+            <span class="color-name">Eggplant</span>
+            <span class="color-descriptor">Pantone 273C</span>
+            <span class="color-hex">#25216d</span>
+          </div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: #572c81;"></div>
+          <div class="color-meta">
+            <span class="color-name">Purple</span>
+            <span class="color-descriptor">Pantone 268C</span>
+            <span class="color-hex">#572c81</span>
+          </div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: #8666ac;"></div>
+          <div class="color-meta">
+            <span class="color-name">Orchid</span>
+            <span class="color-descriptor">Pantone 265C</span>
+            <span class="color-hex">#8666ac</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section class="section section--dark reveal">
+    <div class="container">
+      <span class="label">Typography</span>
+      <div class="type-grid">
+
+        <div class="type-col">
+          <p class="type-specimen" style="font-family: 'Aller', sans-serif;">Aller</p>
+          <div class="type-divider"></div>
+          <p class="type-role">Headline</p>
+          <p class="type-alpha" style="font-family: 'Aller', sans-serif;">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz</p>
+          <div class="type-weights">
+            <span style="font-family: 'Aller', sans-serif; font-weight: 300;">Light</span>
+            <span style="font-family: 'Aller', sans-serif; font-weight: 400;">Regular</span>
+            <span style="font-family: 'Aller', sans-serif; font-weight: 700;">Bold</span>
+            <span style="font-family: 'Aller', sans-serif; font-style: italic;">Italic</span>
+          </div>
+          <p class="type-sample" style="font-family: 'Aller', sans-serif;">The quick brown fox jumps over the lazy dog. 0123456789</p>
+        </div>
+
+        <div class="type-col">
+          <p class="type-specimen" style="font-family: 'Open Sans', sans-serif;">Open Sans</p>
+          <div class="type-divider"></div>
+          <p class="type-role">Body</p>
+          <p class="type-alpha" style="font-family: 'Open Sans', sans-serif;">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz</p>
+          <div class="type-weights">
+            <span style="font-family: 'Open Sans', sans-serif; font-weight: 300;">Light</span>
+            <span style="font-family: 'Open Sans', sans-serif; font-weight: 400;">Regular</span>
+            <span style="font-family: 'Open Sans', sans-serif; font-weight: 600;">SemiBold</span>
+            <span style="font-family: 'Open Sans', sans-serif; font-weight: 700;">Bold</span>
+            <span style="font-family: 'Open Sans', sans-serif; font-style: italic;">Italic</span>
+          </div>
+          <p class="type-sample" style="font-family: 'Open Sans', sans-serif;">The quick brown fox jumps over the lazy dog. 0123456789</p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -124,14 +421,29 @@ const project = {
     </a>
   </nav>
 
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Media viewer">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+    <div class="lightbox-inner">
+      <iframe id="lightboxFrame" src="" title="Video" style="border:0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <img id="lightboxImg" src="" alt="" />
+    </div>
+  </div>
+
 </Layout>
 
 <style>
   .project-hero { padding-top: var(--nav-h); }
 
   .hero-visual {
-    height: 420px;
+    height: 800px;
     position: relative;
+    overflow: hidden;
+  }
+
+  .hero-visual video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .hero-num {
@@ -205,6 +517,96 @@ const project = {
   }
 
   .section--dark { background: var(--surface); }
+  .section--lighter {
+    background: #f0ece6;
+    color: #1a1714;
+  }
+
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .logo-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    overflow: hidden;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  .logo-col img {
+    width: 100%;
+    max-width: 160px;
+    height: auto;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+
+  .logo-col:hover img { transform: scale(1.1); }
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .lightbox.is-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .lightbox-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-inner.is-image {
+    background: #f0ece6;
+    padding: 3rem;
+  }
+
+  #lightboxImg {
+    width: min(90vw, 700px);
+    height: auto;
+    display: block;
+  }
+
+  .lightbox-close {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-size: 1rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, background 0.2s;
+    z-index: 1001;
+  }
+
+  .lightbox-close:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+  .section--lighter .feature-headline { color: #1a1714; }
+  .section--lighter .feature-copy { color: #5a5048; }
 
   .overview-grid {
     display: grid;
@@ -273,10 +675,74 @@ const project = {
     margin-top: 1rem;
   }
 
-  .full-visual {
-    height: 480px;
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 1fr;
+    gap: 4rem;
+    align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+  }
+
+  .feature-col--side {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  .feature-col--center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature-image {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    display: block;
+  }
+
+  .feature-item { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .feature-icon {
+    color: var(--accent);
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+
+  .feature-headline {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+    margin: 0;
+  }
+
+  .feature-copy {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .full-visual {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .full-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .full-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    letter-spacing: 0.04em;
+    text-align: center;
+    margin-top: 2rem;
   }
 
   .full-caption { text-align: center; }
@@ -342,13 +808,256 @@ const project = {
     color: var(--text);
   }
 
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 2.5rem auto 0;
+    border-top: 1px solid var(--border);
+    padding-top: 3rem;
+  }
+
+  .type-col { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .type-specimen {
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    margin: 0;
+  }
+
+  .type-divider {
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .type-role {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .type-alpha {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .type-weights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+  }
+
+  .type-sample {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--text);
+    border-left: 2px solid var(--border);
+    padding-left: 1rem;
+    margin: 0;
+  }
+
+  .colors-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    letter-spacing: 0.04em;
+    margin-bottom: 3rem;
+  }
+
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .color-item { display: flex; flex-direction: column; }
+
+  .color-swatch { height: 280px; }
+
+  .color-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.25rem 0 0;
+  }
+
+  .color-name {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    letter-spacing: 0.04em;
+  }
+
+  .color-descriptor,
+  .color-hex {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+  }
+
+  .videos-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    letter-spacing: 0.04em;
+    margin: 1rem 0 3rem;
+  }
+
+  .video-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .video-thumb {
+    position: relative;
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .video-thumb img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+
+  .video-thumb:hover img { transform: scale(1.04); }
+
+  .play-btn {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+
+  .play-btn svg {
+    width: 56px;
+    height: 56px;
+    background: rgba(0,0,0,0.55);
+    border-radius: 50%;
+    padding: 16px;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .video-thumb:hover .play-btn svg {
+    background: var(--accent);
+    transform: scale(1.1);
+  }
+
+  .video-text { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .video-text-headline {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    letter-spacing: 0.03em;
+    line-height: 1.05;
+  }
+
+  .video-text-copy {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    max-width: 1200px;
+    margin: 3rem auto 0;
+  }
+
+  .lightbox-inner iframe {
+    width: min(90vw, 1000px);
+    aspect-ratio: 16/9;
+    border: 0;
+    display: none;
+  }
+
   @media (max-width: 768px) {
-    .hero-visual { height: 260px; }
+    .hero-visual { height: 460px; }
     .overview-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .overview-aside { position: static; }
     .work-blocks { grid-template-columns: 1fr; }
+    .logo-grid { grid-template-columns: repeat(2, 1fr); }
+    .logo-grid .logo-col:last-child { grid-column: 1 / -1; }
+    .feature-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .feature-col--center { order: -1; }
+    .type-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .color-grid { grid-template-columns: 1fr; }
+    .video-row { grid-template-columns: 1fr; }
+    .video-grid { grid-template-columns: repeat(2, 1fr); }
     .results-grid { grid-template-columns: 1fr; }
     .project-nav { grid-template-columns: 1fr; }
     .nav-next { border-left: none; border-top: 1px solid var(--border); text-align: left; align-items: flex-start; }
   }
 </style>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const closeBtn = document.getElementById('lightboxClose');
+  const lightboxImg = document.getElementById('lightboxImg') as HTMLImageElement;
+  const lightboxFrame = document.getElementById('lightboxFrame') as HTMLIFrameElement;
+  const lightboxInner = lightbox?.querySelector('.lightbox-inner');
+
+  document.querySelectorAll<HTMLButtonElement>('.logo-col[data-src]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      lightboxFrame.style.display = 'none';
+      lightboxFrame.src = '';
+      lightboxImg.src = btn.dataset.src!;
+      lightboxImg.alt = btn.dataset.alt ?? '';
+      lightboxImg.style.display = 'block';
+      lightboxInner?.classList.add('is-image');
+      lightbox?.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  document.querySelectorAll<HTMLButtonElement>('.video-thumb[data-video]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      lightboxImg.style.display = 'none';
+      lightboxImg.src = '';
+      lightboxInner?.classList.remove('is-image');
+      lightboxFrame.src = `https://www.youtube.com/embed/${btn.dataset.video}?autoplay=1`;
+      lightboxFrame.style.display = 'block';
+      lightbox?.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    lightbox?.classList.remove('is-open');
+    lightboxImg.src = '';
+    lightboxImg.style.display = '';
+    lightboxFrame.src = '';
+    lightboxFrame.style.display = 'none';
+    lightboxInner?.classList.remove('is-image');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn?.addEventListener('click', closeLightbox);
+  lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+</script>
