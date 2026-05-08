@@ -166,6 +166,8 @@ const projects = [
 
   <!-- HEADER -->
   <section class="portfolio-hero">
+    <video class="portfolio-hero-video" src="https://res.cloudinary.com/dd90aye72/video/upload/v1778279018/6smaker-header_mxs8yc.mp4" autoplay muted loop playsinline preload="auto"></video>
+    <div class="portfolio-hero-overlay"></div>
     <div class="container">
       <span class="label">Selected Work</span>
       <h1 class="portfolio-heading">
@@ -240,6 +242,29 @@ const projects = [
     padding-left: var(--px);
     padding-right: var(--px);
     border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .portfolio-hero-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .portfolio-hero-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+  }
+
+  .portfolio-hero .container {
+    position: relative;
+    z-index: 2;
   }
 
   .portfolio-hero .label {

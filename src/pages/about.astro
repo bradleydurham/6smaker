@@ -66,6 +66,8 @@ const capabilities = [
 
   <!-- HERO -->
   <section class="about-hero">
+    <video class="about-hero-video" src="https://res.cloudinary.com/dd90aye72/video/upload/v1778279018/6smaker-header_mxs8yc.mp4" autoplay muted loop playsinline preload="auto"></video>
+    <div class="about-hero-overlay"></div>
     <div class="container">
       <span class="label hero-label">About Us</span>
       <h1 class="about-heading">
@@ -217,6 +219,29 @@ const capabilities = [
     padding-left: var(--px);
     padding-right: var(--px);
     border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-hero-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .about-hero-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+  }
+
+  .about-hero .container {
+    position: relative;
+    z-index: 2;
   }
 
   .hero-label {
