@@ -53,7 +53,8 @@ const projectTypes = [
 
       <!-- RIGHT: Form -->
       <div class="contact-form-wrap reveal">
-        <form class="contact-form" id="contactForm" novalidate>
+        <form class="contact-form" id="contactForm" name="contact" data-netlify="true" novalidate>
+          <input type="hidden" name="form-name" value="contact" />
           <div class="form-row">
             <div class="form-field">
               <label for="name">Your Name</label>
@@ -109,12 +110,25 @@ const projectTypes = [
 
 <script>
   const form = document.getElementById('contactForm') as HTMLFormElement;
-  form?.addEventListener('submit', (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = form.querySelector('.submit-btn') as HTMLButtonElement;
-    btn.textContent = 'Message Sent ✓';
-    btn.style.background = '#4caf50';
+    btn.textContent = 'Sending…';
     btn.disabled = true;
+
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form) as any).toString(),
+      });
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = '#4caf50';
+    } catch {
+      btn.textContent = 'Send Failed — Try Again';
+      btn.style.background = '#c0392b';
+      btn.disabled = false;
+    }
   });
 </script>
 
