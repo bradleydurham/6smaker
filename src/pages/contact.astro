@@ -110,8 +110,39 @@ const projectTypes = [
 
 <script>
   const form = document.getElementById('contactForm') as HTMLFormElement;
+
+  function setError(id: string, msg: string | null) {
+    const field = form.querySelector(`#${id}`)!;
+    let err = field.parentElement!.querySelector('.field-error') as HTMLElement | null;
+    if (msg) {
+      field.classList.add('input-error');
+      if (!err) {
+        err = document.createElement('span');
+        err.className = 'field-error';
+        field.parentElement!.appendChild(err);
+      }
+      err.textContent = msg;
+    } else {
+      field.classList.remove('input-error');
+      err?.remove();
+    }
+  }
+
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    const name    = (form.querySelector('#name') as HTMLInputElement).value.trim();
+    const email   = (form.querySelector('#email') as HTMLInputElement).value.trim();
+    const message = (form.querySelector('#message') as HTMLTextAreaElement).value.trim();
+
+    let valid = true;
+
+    setError('name',    !name    ? 'Name is required.'             : null);
+    setError('email',   !email   ? 'Email is required.'            : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? 'Enter a valid email.' : null);
+    setError('message', !message ? 'Message is required.'          : null);
+
+    if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !message) return;
+
     const btn = form.querySelector('.submit-btn') as HTMLButtonElement;
     btn.textContent = 'Sending…';
     btn.disabled = true;
@@ -304,6 +335,20 @@ const projectTypes = [
     -webkit-appearance: none;
     border-radius: 0;
     width: 100%;
+  }
+
+  .input-error {
+    border-bottom-color: #c0392b !important;
+  }
+
+  .field-error {
+    display: block;
+    margin-top: 0.3rem;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #c0392b;
   }
 
   input::placeholder,
