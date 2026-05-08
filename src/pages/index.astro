@@ -3,25 +3,74 @@ import Layout from '../layouts/Layout.astro';
 
 const tickerItems = ['Web Design', 'Brand Identity', 'Digital Strategy', 'Product Design', 'Development', 'Motion Design'];
 const tickerFull = Array(6).fill(tickerItems).flat();
+
+const logoFiles = [
+  'Amazon.png','andersons-home-team.svg','board-bandages.svg','cateechee.svg',
+  'hagan.svg','Home-Depot.png','leadbetter.svg','litter-pearls.svg',
+  'Neon-Cat-Litter-logo-design-by-6sMaker.svg','Pro-ATM-Logo-designed-by-6sMaker.svg',
+  'richpower.svg','smartcast-media.svg','solid-gold.svg',
+  'TPI-Texas-Logo-Design-by-6sMaker.svg','terrapin.svg',
+  'The-Club-at-Brookstone-logo-refinement-by-6sMaker.svg','the-iron-yard.svg',
+];
+const logoTrack = [...logoFiles, ...logoFiles, ...logoFiles];
+
+const testimonials = [
+  {
+    quote: "When Richpower Industries, Inc. needed to update its multiple websites we researched and found 6SMaker to be the best fit for us. 6SMaker listened and responded to our web needs then provided solutions and ideas on how to accomplish our goals, while keeping our timelines and budget in focus. As the Creative Director for Richpower I took note of how 6SMaker was able to keep our Visual id on point without having to be told to do so. This saved me time and aggravation that a less experienced vendor would be all too glad to place back on the client. We also task 6SMaker for our monthly web maintenance, and to date we have had no issues and know our sites are up to date and performing at peak performance.",
+    name: "Greg Bishop",
+    title: "Creative Director",
+    company: "Richpower Industries, Inc.",
+  },
+  {
+    quote: "6sMaker.com provides flawless service as our agency for everything creative. They turn our vague ideas into awesome designs, and they've saved us costs working with global teams and suppliers on our behalf. I strongly recommend 6smaker for your packaging, digital marketing, advertising, and special projects.",
+    name: "Tom Atyeo",
+    title: "VP Marketing",
+    company: "Ultra Pet Company, Inc.",
+  },
+  {
+    quote: "6sMaker took our website to the next level with e-commerce and assist with order information as needed. The team not only organized our site fluidly, they connected all of our social media accounts and email marketing system in a seamless way. 6sMaker also regularly updates our site content upon request. We are so grateful for their time and expertise.",
+    name: "Colleen Hartley",
+    title: "",
+    company: "TPI Texas",
+  },
+  {
+    quote: "I set up a one man consulting firm after retiring, and 6sMaker helped me with logo design, print materials and a phase one web page. They made the process very easy, the image looks great and I'm on my way!",
+    name: "Mark J. Hagan",
+    title: "",
+    company: "Hagan Consulting",
+  },
+  {
+    quote: "6sMaker has been great partner. They have been able to take simple design ideas and turn them into fantastic finished products that appeal to my customers and staff.",
+    name: "Emily Durham",
+    title: "",
+    company: "GHS Children's Hospital",
+  },
+];
 ---
 
 <Layout title="Home" description="6sMaker — Design-first studio building digital products that matter">
 
   <!-- HERO -->
   <section class="hero">
+    <video class="hero-bg-video" src="https://res.cloudinary.com/dd90aye72/video/upload/v1778279018/6smaker-header_mxs8yc.mp4" autoplay muted loop playsinline preload="auto"></video>
+    <div class="hero-overlay"></div>
     <div class="hero-inner">
       <div class="hero-left">
-        <span class="label hero-label">Est. 2024</span>
+        <span class="label hero-label">Est. 2015</span>
         <h1 class="hero-heading">We<br/>Build<br/>Things<br/>That<br/>Matter.</h1>
       </div>
       <div class="hero-right">
+        <div class="hero-collage" id="heroCollage" aria-hidden="true">
+          <img id="reelA" class="reel-img" src="/images/collage/1-richpower-mockup.jpg" alt="" loading="eager" />
+          <img id="reelB" class="reel-img" src="/images/collage/Neon-4723.jpg" alt="" loading="eager" />
+        </div>
         <p class="hero-desc">
           A design-first studio crafting digital products, brand identities,
           and web experiences that move people and grow businesses.
         </p>
         <div class="hero-stats">
           <div class="stat">
-            <span class="stat-num">50+</span>
+            <span class="stat-num">100+</span>
             <span class="stat-label">Projects</span>
           </div>
           <div class="stat">
@@ -66,34 +115,46 @@ const tickerFull = Array(6).fill(tickerItems).flat();
           <div class="card-num">01</div>
           <div class="card-visual" style="--c1: #1a3a2a; --c2: #0d1f16;"></div>
           <div class="card-body">
-            <span class="label">Brand Identity</span>
-            <h3>Meridian Studio</h3>
-            <p>Complete visual identity for an architecture firm redefining urban spaces.</p>
-            <a href="/portfolio" class="card-link">View Project →</a>
+            <span class="label">Digital Design</span>
+            <h3>Amazon E-Commerce Support</h3>
+            <p>Helped Litter Pearls capitalize on Amazon's massive retail reach with standout e-commerce design.</p>
+            <a href="/portfolio/amazon-e-commerce-support/" class="card-link">View Project →</a>
           </div>
         </article>
         <article class="project-card reveal" style="--delay: 0.1s">
           <div class="card-num">02</div>
           <div class="card-visual" style="--c1: #0f2233; --c2: #071422;"></div>
           <div class="card-body">
-            <span class="label">Product Design</span>
-            <h3>Pulse Health</h3>
-            <p>Intuitive health tracking app designed around human behavior and real habits.</p>
-            <a href="/portfolio" class="card-link">View Project →</a>
+            <span class="label">Digital Design</span>
+            <h3>Home Depot E-Com Support</h3>
+            <p>Thousands of e-commerce assets that boosted search rankings and earned client recognition from The Home Depot.</p>
+            <a href="/portfolio/e-commerce-support/" class="card-link">View Project →</a>
           </div>
         </article>
         <article class="project-card reveal" style="--delay: 0.2s">
           <div class="card-num">03</div>
           <div class="card-visual" style="--c1: #2e1a0a; --c2: #1a0f05;"></div>
           <div class="card-body">
-            <span class="label">Web Design</span>
-            <h3>Terroir</h3>
-            <p>Editorial web experience for an award-winning restaurant group.</p>
-            <a href="/portfolio" class="card-link">View Project →</a>
+            <span class="label">Packaging Design</span>
+            <h3>Litter Pearls</h3>
+            <p>Complete brand refresh with modernized logo, upscale packaging, and digital content for global virtual pet shows.</p>
+            <a href="/portfolio/litter-pearls/" class="card-link">View Project →</a>
           </div>
         </article>
       </div>
     </div>
+  </section>
+
+  <!-- HYPE VIDEO -->
+  <section class="hype-video">
+    <video
+      src="https://res.cloudinary.com/dd90aye72/video/upload/v1778279412/Sequence_01-v2_1_fuuf8z.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+    ></video>
   </section>
 
   <!-- ABOUT TEASER -->
@@ -118,6 +179,50 @@ const tickerFull = Array(6).fill(tickerItems).flat();
     </div>
   </section>
 
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="t-header reveal">
+        <span class="label">Client Words</span>
+      </div>
+      <div class="t-slider" id="tSlider">
+        <div class="t-track" id="tTrack">
+          {testimonials.map((t, i) => (
+            <div class={`t-card${i === 0 ? ' is-active' : ''}`}>
+              <p class="t-quote">&ldquo;{t.quote}&rdquo;</p>
+              <div class="t-byline">
+                <span class="t-name">{t.name}</span>
+                <span class="t-role">{[t.title, t.company].filter(Boolean).join(' — ')}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="t-nav">
+          <button class="t-prev" aria-label="Previous">←</button>
+          <div class="t-dots" id="tDots">
+            {testimonials.map((_, i) => (
+              <button class={`t-dot${i === 0 ? ' is-active' : ''}`} aria-label={`Go to testimonial ${i + 1}`}></button>
+            ))}
+          </div>
+          <button class="t-next" aria-label="Next">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO CAROUSEL -->
+  <section class="clients">
+    <div class="clients-track-wrap">
+      <div class="logo-track" id="logoTrack">
+        {logoTrack.map((file) => (
+          <div class="logo-item">
+            <img src={`/images/logos/${file}`} alt="" loading="lazy" draggable="false" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- CTA BANNER -->
   <section class="cta-banner reveal">
     <div class="container">
@@ -136,10 +241,26 @@ const tickerFull = Array(6).fill(tickerItems).flat();
     min-height: 100svh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: var(--nav-h) var(--px) 5rem;
+    justify-content: center;
+    padding: var(--nav-h) var(--px) 3rem;
     position: relative;
     border-bottom: 1px solid var(--border);
+  }
+
+  .hero-bg-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
   }
 
   .hero::before {
@@ -160,6 +281,8 @@ const tickerFull = Array(6).fill(tickerItems).flat();
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+    position: relative;
+    z-index: 2;
   }
 
   .hero-label {
@@ -179,6 +302,26 @@ const tickerFull = Array(6).fill(tickerItems).flat();
   .hero-right {
     padding-bottom: 0.5rem;
     animation: fadeUp 0.7s 0.18s ease both;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-collage {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+    aspect-ratio: 4 / 3;
+    width: 100%;
+  }
+
+  .reel-img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    will-change: transform;
   }
 
   .hero-desc {
@@ -229,6 +372,7 @@ const tickerFull = Array(6).fill(tickerItems).flat();
     align-items: center;
     gap: 0.75rem;
     animation: fadeUp 0.6s 0.4s ease both;
+    z-index: 2;
   }
 
   .hero-scroll span {
@@ -356,6 +500,21 @@ const tickerFull = Array(6).fill(tickerItems).flat();
   }
   .project-card:hover .card-link { opacity: 1; }
 
+  /* ── HYPE VIDEO ── */
+  .hype-video {
+    width: 100%;
+    line-height: 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hype-video video {
+    width: 100%;
+    max-height: 80vh;
+    object-fit: cover;
+    display: block;
+  }
+
   /* ── ABOUT TEASER ── */
   .teaser {
     padding: 7rem var(--px);
@@ -417,6 +576,116 @@ const tickerFull = Array(6).fill(tickerItems).flat();
     color: var(--text-muted);
   }
 
+  /* ── TESTIMONIALS ── */
+  .testimonials {
+    padding: 7rem var(--px);
+    border-top: 1px solid var(--border);
+  }
+
+  .t-header {
+    margin-bottom: 3rem;
+  }
+
+  .t-slider {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .t-track {
+    position: relative;
+  }
+
+  .t-card {
+    display: none;
+    animation: tFadeIn 0.45s ease both;
+  }
+  .t-card.is-active {
+    display: block;
+  }
+
+  .t-quote {
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    line-height: 1.75;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+
+  .t-byline {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--accent);
+  }
+
+  .t-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    color: var(--text);
+  }
+
+  .t-role {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+  }
+
+  .t-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .t-prev, .t-next {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: border-color 0.2s, color 0.2s;
+    flex-shrink: 0;
+  }
+  .t-prev:hover, .t-next:hover {
+    border-color: var(--text);
+    color: var(--text);
+  }
+
+  .t-dots {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .t-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .t-dot.is-active {
+    background: var(--accent);
+    transform: scale(1.4);
+  }
+
+  @keyframes tFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: none; }
+  }
+
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(40px); }
@@ -433,12 +702,205 @@ const tickerFull = Array(6).fill(tickerItems).flat();
     50%       { opacity: 1; transform: scaleY(1.15); }
   }
 
+  /* ── LOGO CAROUSEL ── */
+  .clients {
+    overflow: hidden;
+    padding: 4rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    background: #f5f5f5;
+  }
+
+  .clients-track-wrap {
+    position: relative;
+  }
+
+  .clients-track-wrap::before,
+  .clients-track-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 12%;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .clients-track-wrap::before {
+    left: 0;
+    background: linear-gradient(to right, #f5f5f5, transparent);
+  }
+  .clients-track-wrap::after {
+    right: 0;
+    background: linear-gradient(to left, #f5f5f5, transparent);
+  }
+
+  .logo-track {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    width: max-content;
+    animation: logoScroll 50s linear infinite;
+    will-change: transform;
+  }
+
+  .logo-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 175px;
+    height: 75px;
+  }
+
+  .logo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    user-select: none;
+  }
+
+  @keyframes logoScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(calc(-100% / 3)); }
+  }
+
   /* ── MOBILE ── */
   @media (max-width: 900px) {
     .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-collage { display: none; }
     .projects-grid { grid-template-columns: 1fr; }
     .teaser-inner { grid-template-columns: 1fr; gap: 3rem; }
     .cta-inner { flex-direction: column; align-items: flex-start; }
     .hero-scroll { display: none; }
   }
 </style>
+
+<script>
+  const stats = document.querySelectorAll<HTMLElement>('.stat-num');
+
+  const animate = (el: HTMLElement) => {
+    const text = el.textContent ?? '';
+    const suffix = text.replace(/[\d]/g, '');
+    const target = parseInt(text, 10);
+    const duration = 1200;
+    const start = performance.now();
+
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target) + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animate(entry.target as HTMLElement);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  stats.forEach((el) => observer.observe(el));
+
+  // Testimonial slider
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('.t-card'));
+  const dots  = Array.from(document.querySelectorAll<HTMLElement>('.t-dot'));
+  let current = 0;
+  let timer: ReturnType<typeof setTimeout>;
+
+  function goTo(index: number) {
+    cards[current].classList.remove('is-active');
+    dots[current].classList.remove('is-active');
+    current = (index + cards.length) % cards.length;
+    cards[current].classList.add('is-active');
+    dots[current].classList.add('is-active');
+    resetTimer();
+  }
+
+  function resetTimer() {
+    clearTimeout(timer);
+    timer = setTimeout(() => goTo(current + 1), 6000);
+  }
+
+  document.getElementById('tTrack')?.previousElementSibling; // no-op, just ensure script runs
+  document.querySelector('.t-prev')?.addEventListener('click', () => goTo(current - 1));
+  document.querySelector('.t-next')?.addEventListener('click', () => goTo(current + 1));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+  resetTimer();
+
+  // Hero image reel
+  const reelSrcs = [
+    '/images/collage/1-richpower-mockup.jpg',
+    '/images/collage/Neon-4723.jpg',
+    '/images/collage/TPI-laptop.jpg',
+    '/images/collage/smartcast.jpg',
+    '/images/collage/PurePower-Poster-scaled.png',
+    '/images/collage/3-The_Iron_Yard-Rollup-Mockup-FEDC.jpg',
+    '/images/collage/01-R09895_ALTIMAGE2-D3-v6.png',
+    '/images/collage/06-RY_Storage_Inline_Content_Banner_Large-D1-V5.png',
+    '/images/collage/2-SG-CouponVersions6x4-1-front.png',
+    '/images/collage/Litter-Pearls.png',
+  ];
+
+  const reelA = document.getElementById('reelA') as HTMLImageElement;
+  const reelB = document.getElementById('reelB') as HTMLImageElement;
+  const FADE_MS    = 400;
+  const BLACK_MS   = 400;
+  const DISPLAY_MS = 2500;
+  let reelIdx = 1;
+  let reelCur = 0;
+
+  const slots = [reelA, reelB];
+
+  reelA.style.opacity = '1';
+  reelB.style.opacity = '0';
+
+  function reelAdvance() {
+    reelIdx = (reelIdx + 1) % reelSrcs.length;
+    const outEl = slots[reelCur];
+    const inEl  = slots[1 - reelCur];
+
+    // Fade out current
+    outEl.style.transition = `opacity ${FADE_MS}ms ease`;
+    outEl.style.opacity = '0';
+
+    // After black pause, fade in next
+    setTimeout(() => {
+      inEl.src = reelSrcs[reelIdx];
+      inEl.style.transition = 'none';
+      inEl.style.opacity = '0';
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        inEl.style.transition = `opacity ${FADE_MS}ms ease`;
+        inEl.style.opacity = '1';
+        reelCur = 1 - reelCur;
+      }));
+    }, FADE_MS + BLACK_MS);
+  }
+
+  setInterval(reelAdvance, DISPLAY_MS + FADE_MS + BLACK_MS);
+
+  // Logo carousel spotlight
+  const logoImgs = Array.from(document.querySelectorAll<HTMLImageElement>('.logo-item img'));
+
+  function updateLogos() {
+    const cx = window.innerWidth / 2;
+    const spread = window.innerWidth * 0.18;
+    logoImgs.forEach((img) => {
+      const r = img.getBoundingClientRect();
+      const dist = Math.abs((r.left + r.width / 2) - cx);
+      const t = Math.max(0, 1 - dist / spread);
+      img.style.filter = `grayscale(${(1 - t).toFixed(2)}) opacity(${(0.25 + 0.75 * t).toFixed(2)})`;
+    });
+    requestAnimationFrame(updateLogos);
+  }
+
+  requestAnimationFrame(updateLogos);
+</script>
