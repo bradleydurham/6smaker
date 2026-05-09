@@ -63,8 +63,17 @@ const path = Astro.url.pathname;
       const toggle = document.getElementById('navToggle');
       const links = document.getElementById('navLinks');
       toggle?.addEventListener('click', () => {
-        links?.classList.toggle('open');
+        const isOpen = links?.classList.toggle('open');
         toggle.classList.toggle('open');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      links?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          links.classList.remove('open');
+          toggle?.classList.remove('open');
+          document.body.style.overflow = '';
+        });
       });
 
       const observer = new IntersectionObserver((entries) => {
@@ -300,6 +309,7 @@ const path = Astro.url.pathname;
     .nav-links {
       position: fixed;
       inset: 0;
+      z-index: 99;
       background: var(--bg);
       flex-direction: column;
       justify-content: center;
