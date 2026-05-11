@@ -25,7 +25,8 @@ const project = {
 
   <!-- HERO -->
   <section class="project-hero">
-    <div class="hero-visual" style={`background: linear-gradient(135deg, ${project.c1}, ${project.c2})`}>
+    <div class="hero-visual">
+      <img src="/images/brookstone-header.jpg" alt="The Club at Brookstone" class="hero-img" loading="eager" />
       <span class="hero-num">{project.num}</span>
     </div>
     <div class="container">
@@ -157,6 +158,16 @@ const project = {
   .hero-visual {
     height: 420px;
     position: relative;
+    overflow: hidden;
+  }
+
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   .hero-num {
