@@ -14,12 +14,12 @@ const project = {
 };
 ---
 
-<Layout title="Litter Pearls" description="6sMaker — Litter Pearls brand refresh case study">
+<Layout title="6sMaker | Brand Refresh, Packaging & Video Ads for Litter Pearls" description="6sMaker led a full brand refresh for Litter Pearls — updating packaging, producing video ads for each litter formula, and building digital assets for their tradeshow presence.">
 
   <!-- HERO -->
   <section class="project-hero">
     <div class="hero-visual">
-      <video autoplay muted loop playsinline>
+      <video autoplay muted loop playsinline aria-hidden="true">
         <source src="/images/litter-pearls/v4_litter_pearls.mp4" type="video/mp4" />
       </video>
       <span class="hero-num">{project.num}</span>
@@ -1006,6 +1006,36 @@ const project = {
   const lightboxFrame = document.getElementById('lightboxFrame') as HTMLIFrameElement;
   const lightboxInner = lightbox?.querySelector('.lightbox-inner');
 
+  let previousFocus: HTMLElement | null = null;
+
+  function getFocusable(el: HTMLElement) {
+    return Array.from(el.querySelectorAll<HTMLElement>(
+      'button:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])'
+    )).filter(e => getComputedStyle(e).display !== 'none');
+  }
+
+  function handleTrap(e: KeyboardEvent) {
+    if (e.key !== 'Tab' || !lightbox) return;
+    const focusable = getFocusable(lightbox);
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last  = focusable[focusable.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+    }
+  }
+
+  function openLightbox() {
+    if (!lightbox) return;
+    previousFocus = document.activeElement as HTMLElement;
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    lightbox.addEventListener('keydown', handleTrap);
+    closeBtn?.focus();
+  }
+
   document.querySelectorAll<HTMLButtonElement>('.logo-col[data-src]').forEach(btn => {
     btn.addEventListener('click', () => {
       lightboxFrame.style.display = 'none';
@@ -1014,8 +1044,7 @@ const project = {
       lightboxImg.alt = btn.dataset.alt ?? '';
       lightboxImg.style.display = 'block';
       lightboxInner?.classList.add('is-image');
-      lightbox?.classList.add('is-open');
-      document.body.style.overflow = 'hidden';
+      openLightbox();
     });
   });
 
@@ -1026,19 +1055,22 @@ const project = {
       lightboxInner?.classList.remove('is-image');
       lightboxFrame.src = `https://www.youtube.com/embed/${btn.dataset.video}?autoplay=1`;
       lightboxFrame.style.display = 'block';
-      lightbox?.classList.add('is-open');
-      document.body.style.overflow = 'hidden';
+      openLightbox();
     });
   });
 
   function closeLightbox() {
-    lightbox?.classList.remove('is-open');
+    if (!lightbox) return;
+    lightbox.classList.remove('is-open');
+    lightbox.removeEventListener('keydown', handleTrap);
     lightboxImg.src = '';
     lightboxImg.style.display = '';
     lightboxFrame.src = '';
     lightboxFrame.style.display = 'none';
     lightboxInner?.classList.remove('is-image');
     document.body.style.overflow = '';
+    previousFocus?.focus();
+    previousFocus = null;
   }
 
   closeBtn?.addEventListener('click', closeLightbox);

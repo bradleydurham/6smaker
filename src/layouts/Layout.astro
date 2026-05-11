@@ -21,9 +21,10 @@ const path = Astro.url.pathname;
     <title>{title} — 6sMaker</title>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <nav class="nav" id="nav">
       <a href="/" class="nav-logo"><img src="/logo.svg" alt="6sMaker" height="50" /></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
@@ -34,7 +35,7 @@ const path = Astro.url.pathname;
       </ul>
     </nav>
 
-    <main>
+    <main id="main-content">
       <slot />
     </main>
 
@@ -65,6 +66,7 @@ const path = Astro.url.pathname;
       toggle?.addEventListener('click', () => {
         const isOpen = links?.classList.toggle('open');
         toggle.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(!!isOpen));
         document.body.style.overflow = isOpen ? 'hidden' : '';
       });
 
@@ -72,6 +74,7 @@ const path = Astro.url.pathname;
         link.addEventListener('click', () => {
           links.classList.remove('open');
           toggle?.classList.remove('open');
+          toggle?.setAttribute('aria-expanded', 'false');
           document.body.style.overflow = '';
         });
       });
@@ -120,6 +123,24 @@ const path = Astro.url.pathname;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
+
+  /* ── SKIP LINK ── */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 9999;
+    padding: 0.5rem 1.25rem;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 1rem; }
 
   /* ── NAV ── */
   .nav {
@@ -185,6 +206,11 @@ const path = Astro.url.pathname;
 
   .nav-link:hover,
   .nav-link.active { color: var(--text); }
+
+  .nav-link:focus-visible {
+    outline: none;
+    box-shadow: 0 2px 0 var(--accent);
+  }
 
   .nav-link.nav-cta {
     color: var(--accent);

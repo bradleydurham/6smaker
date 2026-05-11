@@ -13,7 +13,7 @@ const project = {
 };
 ---
 
-<Layout title="Cateechee" description="6sMaker — Cateechee case study">
+<Layout title="6sMaker | Photography, Video & Marketing for Cateechee Golf" description="6sMaker delivered photography, video production, digital and print ads, and event coverage for Cateechee Golf Club — bringing the full club experience to life.">
 
   <!-- HERO -->
   <section class="project-hero">
@@ -877,13 +877,42 @@ const project = {
   const frame = document.getElementById('lightboxFrame') as HTMLIFrameElement;
   const lightboxImg = document.getElementById('lightboxImg') as HTMLImageElement;
 
+  let previousFocus: HTMLElement | null = null;
+
+  function getFocusable(el: HTMLElement) {
+    return Array.from(el.querySelectorAll<HTMLElement>(
+      'button:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])'
+    )).filter(e => getComputedStyle(e).display !== 'none');
+  }
+
+  function handleTrap(e: KeyboardEvent) {
+    if (e.key !== 'Tab' || !lightbox) return;
+    const focusable = getFocusable(lightbox);
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last  = focusable[focusable.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+    }
+  }
+
+  function openLightbox() {
+    if (!lightbox) return;
+    previousFocus = document.activeElement as HTMLElement;
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    lightbox.addEventListener('keydown', handleTrap);
+    closeBtn?.focus();
+  }
+
   document.querySelectorAll<HTMLButtonElement>('.video-trigger[data-video]').forEach(btn => {
     btn.addEventListener('click', () => {
       lightboxImg.style.display = 'none';
       frame.style.display = '';
       frame.src = `https://www.youtube.com/embed/${btn.dataset.video}?autoplay=1`;
-      lightbox?.classList.add('is-open');
-      document.body.style.overflow = 'hidden';
+      openLightbox();
     });
   });
 
@@ -893,17 +922,20 @@ const project = {
     lightboxImg.src = src;
     lightboxImg.alt = alt;
     lightboxImg.style.display = 'block';
-    lightbox?.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
+    openLightbox();
   }
 
   function closeLightbox() {
-    lightbox?.classList.remove('is-open');
+    if (!lightbox) return;
+    lightbox.classList.remove('is-open');
+    lightbox.removeEventListener('keydown', handleTrap);
     frame.src = '';
     frame.style.display = '';
     lightboxImg.src = '';
     lightboxImg.style.display = 'none';
     document.body.style.overflow = '';
+    previousFocus?.focus();
+    previousFocus = null;
   }
 
   closeBtn?.addEventListener('click', closeLightbox);

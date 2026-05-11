@@ -15,7 +15,7 @@ const project = {
 };
 ---
 
-<Layout title="Smartcast Media" description="6sMaker — Smartcast Media case study">
+<Layout title="6sMaker | Website, Mascot & Explainer Videos for Smarcast Media" description="6sMaker created a website, animated mascot, and a series of mascot-driven explainer videos for Smarcast Media, bringing their digital ad placement network to life.">
 
   <!-- HERO -->
   <section class="project-hero">
@@ -133,7 +133,7 @@ const project = {
     </button>
     <div class="lightbox__backdrop" id="lightboxBackdrop"></div>
     <div class="lightbox__frame">
-      <iframe id="videoIframe" src="" width="1280" height="720" allow="autoplay; encrypted-media; fullscreen" allowfullscreen style="border:0"></iframe>
+      <iframe id="videoIframe" src="" title="Smartcast Media explainer video" width="1280" height="720" allow="autoplay; encrypted-media; fullscreen" allowfullscreen style="border:0"></iframe>
     </div>
   </div>
     </div>
@@ -830,18 +830,45 @@ const project = {
 
   const VIDEO_SRC = 'https://www.youtube.com/embed/oVzIcWosp3w?autoplay=1';
 
+  let previousFocus: HTMLElement | null = null;
+
+  function getFocusable(el: HTMLElement) {
+    return Array.from(el.querySelectorAll<HTMLElement>(
+      'button:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])'
+    ));
+  }
+
+  function handleTrap(e: KeyboardEvent) {
+    if (e.key !== 'Tab' || !lightbox) return;
+    const focusable = getFocusable(lightbox);
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last  = focusable[focusable.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+    }
+  }
+
   function openLightbox() {
     if (!lightbox || !iframe) return;
+    previousFocus = document.activeElement as HTMLElement;
     iframe.src = VIDEO_SRC;
     lightbox.removeAttribute('hidden');
     document.body.style.overflow = 'hidden';
+    lightbox.addEventListener('keydown', handleTrap);
+    closeBtn?.focus();
   }
 
   function closeLightbox() {
     if (!lightbox || !iframe) return;
     lightbox.setAttribute('hidden', '');
+    lightbox.removeEventListener('keydown', handleTrap);
     iframe.src = '';
     document.body.style.overflow = '';
+    previousFocus?.focus();
+    previousFocus = null;
   }
 
   thumb?.addEventListener('click', openLightbox);

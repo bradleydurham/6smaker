@@ -62,11 +62,11 @@ const capabilities = [
 ];
 ---
 
-<Layout title="About" description="6sMaker — A small studio that believes craft matters">
+<Layout title="6sMaker | The Creative Minds Behind the Work" description="Meet the team at 6sMaker — a creative agency passionate about graphic design, web design, photography, and video production. We build brands with purpose and intention.">
 
   <!-- HERO -->
   <section class="about-hero">
-    <video class="about-hero-video" src="https://res.cloudinary.com/dd90aye72/video/upload/v1778279018/6smaker-header_mxs8yc.mp4" autoplay muted loop playsinline preload="auto"></video>
+    <video class="about-hero-video" src="https://res.cloudinary.com/dd90aye72/video/upload/v1778279018/6smaker-header_mxs8yc.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
     <div class="about-hero-overlay"></div>
     <div class="container">
       <span class="label hero-label">About Us</span>
@@ -127,7 +127,14 @@ const capabilities = [
         <!-- TOP: Photo left, bio right (stacked panels) -->
         <div class="founder-featured">
           {founders.map((f, i) => (
-            <div class={`founder-panel${i === 0 ? ' active' : ''}`} data-panel={i}>
+            <div
+              class={`founder-panel${i === 0 ? ' active' : ''}`}
+              data-panel={i}
+              role="tabpanel"
+              id={`founder-panel-${i}`}
+              aria-labelledby={`founder-tab-${i}`}
+              aria-hidden={i !== 0 ? "true" : "false"}
+            >
               <div class="panel-photo" style={f.img ? '' : `background: ${f.grad}`}>
                 {f.img && <img src={f.img} alt={f.name} class="photo-img" loading="lazy" />}
                 <span class="panel-num">{f.num}</span>
@@ -143,9 +150,16 @@ const capabilities = [
         </div>
 
         <!-- BOTTOM: 3 founder selector tabs -->
-        <div class="founders-selector">
+        <div class="founders-selector" role="tablist" aria-label="Team members">
           {founders.map((f, i) => (
-            <button class={`founder-tab${i === 0 ? ' active' : ''}`} data-target={i}>
+            <button
+              class={`founder-tab${i === 0 ? ' active' : ''}`}
+              data-target={i}
+              role="tab"
+              id={`founder-tab-${i}`}
+              aria-selected={i === 0 ? "true" : "false"}
+              aria-controls={`founder-panel-${i}`}
+            >
               <div class="tab-avatar" style={f.img ? '' : `background: ${f.grad}`}>
                 {f.img && <img src={f.img} alt={f.name} class="avatar-img" loading="lazy" />}
               </div>
@@ -165,13 +179,33 @@ const capabilities = [
     const tabs = document.querySelectorAll<HTMLButtonElement>('.founder-tab');
     const panels = document.querySelectorAll<HTMLElement>('.founder-panel');
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const target = Number(tab.dataset.target);
-        tabs.forEach(t => t.classList.remove('active'));
-        panels.forEach(p => p.classList.remove('active'));
-        tab.classList.add('active');
-        panels[target]?.classList.add('active');
+    const tabArray = Array.from(tabs);
+
+    function activateTab(index: number) {
+      tabArray.forEach((t, i) => {
+        t.classList.toggle('active', i === index);
+        t.setAttribute('aria-selected', String(i === index));
+      });
+      panels.forEach((p, i) => {
+        p.classList.toggle('active', i === index);
+        p.setAttribute('aria-hidden', String(i !== index));
+      });
+    }
+
+    tabArray.forEach((tab, index) => {
+      tab.addEventListener('click', () => activateTab(index));
+
+      tab.addEventListener('keydown', (e: KeyboardEvent) => {
+        let next = -1;
+        if (e.key === 'ArrowRight') next = (index + 1) % tabArray.length;
+        if (e.key === 'ArrowLeft')  next = (index - 1 + tabArray.length) % tabArray.length;
+        if (e.key === 'Home')       next = 0;
+        if (e.key === 'End')        next = tabArray.length - 1;
+        if (next >= 0) {
+          e.preventDefault();
+          activateTab(next);
+          tabArray[next].focus();
+        }
       });
     });
   </script>
