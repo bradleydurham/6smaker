@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git checkout *)",
+      "Bash(mkdir -p /Users/bradleydurham/Documents/Sites/6sMaker/src/content/blog)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
+    ],
+    "additionalDirectories": [
+      "/Users/bradleydurham/Documents/Sites/6sMaker/src/content"
+    ]
+  }
+}
